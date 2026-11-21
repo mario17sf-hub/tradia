@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Tradia">
+<meta name="theme-color" content="#0b1220">
+<title>Tradia</title>
+<style>
+:root{--bg:#0b1220;--card:#131c2e;--card2:#18233a;--txt:#e8eefc;--mut:#8b9bb8;--g:#10b981;--r:#ef4444;--b:#38bdf8;--y:#f59e0b;--line:#22304d}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;background:var(--bg);color:var(--txt);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif}
+body{padding-top:env(safe-area-inset-top);padding-bottom:calc(76px + env(safe-area-inset-bottom))}
+header{display:flex;align-items:center;gap:10px;padding:14px 16px 6px}
+header h1{font-size:22px;margin:0;letter-spacing:.3px}
+header small{color:var(--mut);display:block;font-size:11px}
+main{padding:6px 14px 20px;max-width:640px;margin:0 auto}
+.hint{color:var(--mut);font-size:12px;margin:6px 2px 10px}
+.search{width:100%;padding:12px 14px;border-radius:12px;border:1px solid var(--line);background:var(--card);color:var(--txt);font-size:16px;margin-bottom:10px}
+.chips{display:flex;gap:8px;overflow-x:auto;padding-bottom:8px;margin-bottom:6px}
+.chip{flex:none;padding:8px 13px;border-radius:20px;border:1px solid var(--line);background:var(--card);color:var(--mut);font-size:13px}
+.chip.on{background:var(--b);color:#04121f;border-color:var(--b);font-weight:600}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:13px 14px;margin-bottom:10px}
+.row{display:flex;justify-content:space-between;align-items:flex-start;gap:10px}
+.nm{font-weight:650;font-size:16px}
+.sub{color:var(--mut);font-size:12px;margin-top:2px}
+.rt{text-align:right}
+.pr{font-weight:650}
+.conf{font-size:12px;font-weight:650;margin-top:2px}
+.bar{height:6px;border-radius:4px;background:var(--card2);margin:10px 0 8px;overflow:hidden}
+.bar i{display:block;height:100%;border-radius:4px}
+.tags{display:flex;gap:6px;flex-wrap:wrap}
+.tag{font-size:11px;background:var(--card2);color:var(--mut);padding:3px 8px;border-radius:10px}
+.empty{color:var(--mut);text-align:center;padding:40px 10px}
+.nav{position:fixed;left:0;right:0;bottom:0;display:flex;background:rgba(11,18,32,.96);border-top:1px solid var(--line);padding:6px 6px calc(6px + env(safe-area-inset-bottom));backdrop-filter:blur(10px)}
+.nav button{flex:1;background:none;border:0;color:var(--mut);font-size:11px;padding:6px 0;display:flex;flex-direction:column;align-items:center;gap:2px}
+.nav button span{font-size:20px}
+.nav button.on{color:var(--b)}
+.sheetbg{position:fixed;inset:0;background:rgba(0,0,0,.55);display:none;align-items:flex-end;z-index:20}
+.sheetbg.show{display:flex}
+.sheet{background:var(--bg);width:100%;max-height:92vh;overflow-y:auto;border-radius:22px 22px 0 0;padding:18px 16px calc(24px + env(safe-area-inset-bottom));border-top:1px solid var(--line)}
+.sheet h2{margin:0;font-size:20px}
+.sheet h3{margin:16px 0 6px;font-size:14px;color:var(--mut);text-transform:uppercase;letter-spacing:.6px}
+.sheet ul{margin:0;padding-left:18px;font-size:14px;line-height:1.5}
+.kpis{display:flex;gap:8px;margin-top:12px}
+.kpi{flex:1;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:10px;text-align:center}
+.kpi b{display:block;font-size:20px}
+.kpi small{color:var(--mut);font-size:11px}
+.btn{width:100%;padding:14px;border-radius:14px;border:0;font-size:16px;font-weight:650;margin-top:14px}
+.btn.g{background:var(--g);color:#032015}
+.btn.r{background:var(--r);color:#fff}
+.btn.s{background:var(--card2);color:var(--txt)}
+.btn.sm{width:auto;padding:9px 14px;font-size:13px;margin:8px 6px 0 0}
+.rec{background:#0f2a22;border:1px solid #14543f;border-radius:12px;padding:10px 12px;font-size:13px;line-height:1.45;margin:8px 0}
+.warn{background:#2c1416;border:1px solid #6b1d24;border-radius:12px;padding:10px 12px;font-size:13px;line-height:1.45;margin-top:10px;color:#ffd3d6}
+.seg{display:flex;gap:8px;margin:8px 0}
+.seg label{flex:1;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px;text-align:center;font-size:14px}
+.seg input{margin-right:6px}
+.sheet label.lb{display:block;font-size:12px;color:var(--mut);margin:12px 0 4px}
+.sheet input[type=number]{width:100%;padding:12px;border-radius:12px;border:1px solid var(--line);background:var(--card);color:var(--txt);font-size:16px}
+.sum{display:flex;gap:8px;margin-bottom:12px}
+.sum .kpi b{font-size:17px}
+table{width:100%;border-collapse:collapse;font-size:12px}
+th{color:var(--mut);text-align:left;font-weight:500;padding:6px 4px;border-bottom:1px solid var(--line)}
+td{padding:8px 4px;border-bottom:1px solid var(--line)}
+.up{color:var(--g)}.dn{color:var(--r)}
+.msgs{display:flex;flex-direction:column;gap:8px;margin-bottom:12px}
+.msg{padding:10px 12px;border-radius:14px;font-size:14px;line-height:1.45;max-width:88%;white-space:pre-wrap}
+.msg.bot{background:var(--card);border:1px solid var(--line);align-self:flex-start}
+.msg.me{background:var(--b);color:#04121f;align-self:flex-end}
+.chatbar{display:flex;gap:8px}
+.chatbar input{flex:1;padding:12px;border-radius:12px;border:1px solid var(--line);background:var(--card);color:var(--txt);font-size:16px}
+.chatbar button{padding:0 18px;border-radius:12px;border:0;background:var(--b);color:#04121f;font-weight:700}
+.foot{color:var(--mut);font-size:11px;line-height:1.5;margin-top:18px;text-align:center}
+.toast{position:fixed;left:50%;bottom:96px;transform:translateX(-50%);background:var(--card2);border:1px solid var(--line);padding:10px 16px;border-radius:12px;font-size:13px;display:none;z-index:30}
+.toast.show{display:block}
+</style>
+</head>
+<body>
+<header>
+  <svg width="38" height="38" viewBox="0 0 38 38"><defs><linearGradient id="gr" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#10b981"/><stop offset="1" stop-color="#0ea5e9"/></linearGradient></defs><rect width="38" height="38" rx="10" fill="url(#gr)"/><polyline points="7,26 15,18 21,23 31,12" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  <div><h1>Tradia</h1><small>Análisis de bolsa europea en euros</small></div>
+</header>
+<main id="view"></main>
+<nav class="nav">
+  <button data-act="tab" data-k="rank" data-tab="rank"><span>🏆</span>Rankings</button>
+  <button data-act="tab" data-k="ops" data-tab="ops"><span>💼</span>Operaciones</button>
+  <button data-act="tab" data-k="chat" data-tab="chat"><span>💬</span>Chat</button>
+</nav>
+<div class="sheetbg" id="bg" data-act="cerrar"><div class="sheet" id="sheet"></div></div>
+<div class="toast" id="toast"></div>
+
+<script>
+(function(){
+  var c=document.createElement('canvas');c.width=c.height=180;var g=c.getContext('2d');
+  var gr=g.createLinearGradient(0,0,180,180);gr.addColorStop(0,'#10b981');gr.addColorStop(1,'#0ea5e9');
+  g.fillStyle=gr;g.fillRect(0,0,180,180);g.strokeStyle='#fff';g.lineWidth=14;g.lineCap='round';g.lineJoin='round';
+  g.beginPath();g.moveTo(34,125);g.lineTo(72,87);g.lineTo(100,110);g.lineTo(146,58);g.stroke();
+  var l=document.createElement('link');l.rel='apple-touch-icon';l.href=c.toDataURL('image/png');document.head.appendChild(l);
+})();
+
+var LS='tradia_ops_v1';
+var datos=null,cargaError='',ops=[],tab='rank',filtro='todos',busqueda='',actual=null;
+var chat=[{r:'bot',t:'Hola, soy Tradia. Escribe el nombre de un activo (por ejemplo "Santander" o "SAP") y te resumo lo que dicen los análisis. También puedes preguntar "¿qué comprar?" o "¿qué evitar?".\n\nPor ahora no puedo conversar libremente ni recibir fotos: eso requiere conectar un modelo de IA, que todavía no está montado.'}];
+
+function $(s){return document.querySelector(s)}
+function esc(s){return String(s).replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]})}
+function eur(n){return new Intl.NumberFormat('es-ES',{style:'currency',currency:'EUR'}).format(n)}
+function pct(n){return Math.round(n)+'%'}
+function cargarOps(){try{ops=JSON.parse(localStorage.getItem(LS)||'[]')}catch(e){ops=[]}}
+function guardarOps(){try{localStorage.setItem(LS,JSON.stringify(ops))}catch(e){}}
+function toast(t){var el=$('#toast');el.textContent=t;el.classList.add('show');setTimeout(function(){el.classList.remove('show')},2400)}
+function buscar(t){return datos?datos.resultados.find(function(r){return r.ticker===t}):null}
+
+function lista(){
+  var r=datos.resultados.slice();
+  var q=busqueda.trim().toLowerCase();
+  if(q)r=r.filter(function(x){return x.nombre.toLowerCase().indexOf(q)>-1||x.ticker.toLowerCase().indexOf(q)>-1});
+  if(filtro==='corto')r=r.filter(function(x){return x.horizonte.indexOf('corto')>-1}).sort(function(a,b){return b.compra-a.compra});
+  else if(filtro==='largo')r=r.filter(function(x){return x.horizonte.indexOf('largo')>-1}).sort(function(a,b){return b.compra-a.compra});
+  else if(filtro==='evitar')r=r.filter(function(x){return x.venta>=55}).sort(function(a,b){return b.venta-a.venta});
+  else r.sort(function(a,b){return b.compra-a.compra});
+  if(!q)r=r.slice(0,30);
+  return r;
+}
+function card(x){
+  var ev=filtro==='evitar',val=ev?x.venta:x.compra;
+  var col=ev?'var(--r)':(val>=70?'var(--g)':val>=50?'var(--y)':'var(--mut)');
+  var tags=x.horizonte.map(function(h){return h==='corto'?'<span class="tag">⚡ Corto plazo</span>':h==='largo'?'<span class="tag">📅 Largo plazo</span>':'<span class="tag">📊 Medio plazo</span>'}).join('');
+  return '<div class="card" data-act="abrir" data-t="'+esc(x.ticker)+'"><div class="row"><div><div class="nm">'+esc(x.nombre)+'</div><div class="sub">'+esc(x.ticker)+' · '+esc(x.sector)+'</div></div><div class="rt"><div class="pr">'+eur(x.precio)+'</div><div class="conf" style="color:'+col+'">'+(ev?'Índice de venta ':'Índice de confianza ')+pct(val)+'</div></div></div><div class="bar"><i style="width:'+Math.min(100,val)+'%;background:'+col+'"></i></div><div class="tags">'+tags+'</div></div>';
+}
+function htmlLista(){var r=lista();return r.length?r.map(card).join(''):'<div class="empty">Sin resultados.</div>'}
+function foot(){return '<div class="foot">Herramienta de apoyo, no asesoramiento financiero. El índice de confianza mide cuántas señales coinciden; no es una probabilidad real de ganar dinero. Los precios son los de la última actualización del robot.</div>'}
+
+function vistaRank(){
+  if(!datos)return '<div class="empty">'+(cargaError||'Cargando análisis…')+'</div>';
+  var ch=[['todos','🏆 Mejores'],['corto','⚡ Corto plazo'],['largo','📅 Largo plazo'],['evitar','🚫 Evitar']].map(function(p){return '<button class="chip '+(filtro===p[0]?'on':'')+'" data-act="filtro" data-k="'+p[0]+'">'+p[1]+'</button>'}).join('');
+  return '<div class="hint">Actualizado: '+esc(datos.actualizado)+' · '+datos.total_analizados+' activos analizados</div><input id="q" class="search" placeholder="Buscar activo (Santander, SAP…)" value="'+esc(busqueda)+'"><div class="chips">'+ch+'</div><div id="lista">'+htmlLista()+'</div>'+foot();
+}
+
+function vistaOps(){
+  var act=ops.filter(function(o){return o.estado==='activa'}),cer=ops.filter(function(o){return o.estado==='cerrada'});
+  var real=cer.reduce(function(s,o){return s+(o.precioVenta-o.precioCompra)*o.acciones},0);
+  var lat=0,inv=0;
+  var ah=act.map(function(o){
+    var r=buscar(o.ticker),pa=r?r.precio:o.precioCompra,res=(pa-o.precioCompra)*o.acciones;
+    lat+=res;inv+=o.precioCompra*o.acciones;
+    var thr=o.plazo==='corto'?50:70,alerta=r&&r.venta>=thr;
+    var w=alerta?'<div class="warn">⚠️ Tradia recomienda vender: '+esc((r.señales_venta||[]).slice(0,3).join(', '))+' (índice de venta '+pct(r.venta)+')</div>':'';
+    return '<div class="card"><div class="row"><div><div class="nm">'+esc(o.nombre)+'</div><div class="sub">'+(o.plazo==='corto'?'⚡ Corto plazo':'📅 Largo plazo')+' · '+esc(o.fecha)+'</div></div><div class="rt"><div class="pr">'+eur(pa*o.acciones)+'</div><div class="conf '+(res>=0?'up':'dn')+'">'+(res>=0?'+':'')+eur(res)+'</div></div></div><div class="sub" style="margin-top:8px">'+o.acciones.toFixed(4)+' acciones · compra a '+eur(o.precioCompra)+' · ahora '+eur(pa)+'</div>'+w+'<button class="btn r sm" data-act="vender" data-id="'+o.id+'">Vender</button></div>';
+  }).join('')||'<div class="empty">No tienes operaciones activas.</div>';
+  var rows=cer.slice().reverse().map(function(o){
+    var res=(o.precioVenta-o.precioCompra)*o.acciones;
+    return '<tr><td>'+esc(o.nombre)+'<br><span class="sub">'+o.acciones.toFixed(3)+' acc.</span></td><td>'+eur(o.precioCompra)+'</td><td>'+eur(o.precioVenta)+'</td><td class="'+(res>=0?'up':'dn')+'">'+(res>=0?'+':'')+eur(res)+'</td></tr>';
+  }).join('');
+  var tabla=cer.length?'<div class="card"><table><tr><th>Activo</th><th>Compra</th><th>Venta</th><th>Resultado</th></tr>'+rows+'</table></div>':'<div class="empty">Aún no has cerrado ninguna operación.</div>';
+  return '<div class="sum"><div class="kpi"><small>Total ganado/perdido</small><b class="'+(real>=0?'up':'dn')+'">'+(real>=0?'+':'')+eur(real)+'</b></div><div class="kpi"><small>Latente (abiertas)</small><b class="'+(lat>=0?'up':'dn')+'">'+(lat>=0?'+':'')+eur(lat)+'</b></div></div><div class="hint">Invertido ahora: '+eur(inv)+'</div><h3 style="margin:14px 2px 8px;font-size:14px;color:var(--mut)">ACTIVAS</h3>'+ah+'<h3 style="margin:14px 2px 8px;font-size:14px;color:var(--mut)">HISTORIAL</h3>'+tabla+'<div><button class="btn s sm" data-act="export">Copia de seguridad</button><button class="btn s sm" data-act="import">Restaurar copia</button></div>'+foot();
+}
+
+function vistaChat(){
+  var m=chat.map(function(x){return '<div class="msg '+x.r+'">'+esc(x.t)+'</div>'}).join('');
+  return '<div class="msgs">'+m+'</div><div class="chatbar"><input id="cin" placeholder="Pregunta por un activo…"><button data-act="enviar">Enviar</button></div>'+foot();
+}
+function responder(t){
+  if(!datos)return 'Todavía no he cargado los análisis. Inténtalo en unos segundos.';
+  var q=t.toLowerCase();
+  var enc=datos.resultados.filter(function(x){return q.indexOf(x.nombre.toLowerCase())>-1||q.indexOf(x.ticker.toLowerCase())>-1});
+  if(enc.length){
+    return enc.slice(0,2).map(function(x){
+      return x.nombre+' ('+eur(x.precio)+')\nÍndice de compra: '+pct(x.compra)+' · de venta: '+pct(x.venta)+'\nRSI: '+x.rsi+'\nA favor: '+((x.señales_compra||[]).slice(0,4).join(', ')||'ninguna señal destacada')+'\nEn contra: '+((x.señales_venta||[]).slice(0,4).join(', ')||'ninguna señal destacada')+'\nPlazo sugerido: '+x.rec_plazo+'.\nEs un resumen automático, no asesoramiento.';
+    }).join('\n\n');
+  }
+  if(/evitar|vender|peor/.test(q)){
+    var v=datos.resultados.slice().sort(function(a,b){return b.venta-a.venta}).slice(0,5);
+    return 'Los 5 con más señales negativas ahora:\n'+v.map(function(x,i){return (i+1)+'. '+x.nombre+' — venta '+pct(x.venta)}).join('\n');
+  }
+  if(/comprar|mejor|top|recomien/.test(q)){
+    var c=datos.resultados.slice().sort(function(a,b){return b.compra-a.compra}).slice(0,5);
+    return 'Los 5 con más señales positivas ahora:\n'+c.map(function(x,i){return (i+1)+'. '+x.nombre+' — confianza '+pct(x.compra)+' ('+x.rec_plazo+')'}).join('\n');
+  }
+  return 'No he encontrado ese activo. Prueba con el nombre tal cual (por ejemplo "Iberdrola") o pregunta "¿qué comprar?" o "¿qué evitar?".';
+}
+
+function render(){
+  document.querySelectorAll('.nav button').forEach(function(b){b.classList.toggle('on',b.dataset.tab===tab)});
+  $('#view').innerHTML=tab==='rank'?vistaRank():tab==='ops'?vistaOps():vistaChat();
+}
+
+function rango(x){return x.compra>=80?'entre 100 € y 400 € (confianza alta)':'por debajo de 100 € (confianza media o baja: mejor una cantidad pequeña)'}
+function textoPlazo(x){
+  if(x.rec_plazo==='corto plazo')return 'Tradia recomienda <b>corto plazo</b>: hay señales de rebote (RSI bajo, precio en soporte). Pensado para entrar y salir en poco tiempo.';
+  if(x.rec_plazo==='largo plazo')return 'Tradia recomienda <b>largo plazo</b>: la tendencia y los fundamentales respaldan mantenerlo semanas o meses.'+(x.horizonte.indexOf('corto')>-1?' También hay señal de rebote a corto plazo.':'');
+  return 'No hay una señal clara de plazo. Con esta confianza conviene una cantidad pequeña y vigilar de cerca.';
+}
+
+function abrir(t){
+  var x=buscar(t);if(!x)return;actual=t;
+  var li=function(a,v){return (a&&a.length?a.map(function(s){return '<li>'+esc(s)+'</li>'}).join(''):'<li>'+v+'</li>')};
+  var nt=(x.noticias||[]).length?'<h3>Noticias</h3><ul>'+x.noticias.map(function(n){return '<li>'+esc(n)+'</li>'}).join('')+'</ul>':'';
+  $('#sheet').innerHTML='<div class="row"><div><h2>'+esc(x.nombre)+'</h2><div class="sub">'+esc(x.ticker)+' · '+esc(x.sector)+'</div></div><div class="rt"><div class="pr" style="font-size:20px">'+eur(x.precio)+'</div></div></div>'+
+  '<div class="kpis"><div class="kpi"><small>Confianza de compra</small><b class="up">'+pct(x.compra)+'</b></div><div class="kpi"><small>Confianza de venta</small><b class="dn">'+pct(x.venta)+'</b></div><div class="kpi"><small>RSI</small><b>'+x.rsi+'</b></div></div>'+
+  '<div class="rec" style="margin-top:12px">'+textoPlazo(x)+'</div>'+
+  '<h3>Señales a favor</h3><ul>'+li(x.señales_compra,'Ninguna destacada')+'</ul><h3>Señales en contra</h3><ul>'+li(x.señales_venta,'Ninguna destacada')+'</ul>'+nt+
+  '<div id="buy" style="display:none"><h3>Comprar</h3><div class="rec">Cantidad orientativa: '+rango(x)+'.</div><div class="seg"><label><input type="radio" name="plazo" value="corto"'+(x.rec_plazo==='corto plazo'?' checked':'')+'>⚡ Corto plazo</label><label><input type="radio" name="plazo" value="largo"'+(x.rec_plazo==='largo plazo'?' checked':'')+'>📅 Largo plazo</label></div><label class="lb">Euros invertidos</label><input id="inEur" type="number" inputmode="decimal" step="0.01" min="0" placeholder="Ej. 150"><label class="lb">o número de acciones</label><input id="inAcc" type="number" inputmode="decimal" step="any" min="0" placeholder="Ej. 2.5"><button class="btn g" data-act="confirmar">Confirmar compra a '+eur(x.precio)+'</button></div>'+
+  '<button class="btn g" id="bcomprar" data-act="comprar">Comprar</button><button class="btn s" data-act="cerrar">Cerrar</button>';
+  $('#bg').classList.add('show');
+}
+function cerrar(){$('#bg').classList.remove('show');actual=null}
+
+function confirmar(){
+  var x=buscar(actual);if(!x)return;
+  var pl=document.querySelector('input[name=plazo]:checked');
+  if(!pl){toast('Elige corto o largo plazo');return}
+  var e=parseFloat($('#inEur').value),a=parseFloat($('#inAcc').value),acc;
+  if(a>0)acc=a;else if(e>0)acc=e/x.precio;else{toast('Indica euros o acciones');return}
+  ops.push({id:Date.now(),ticker:x.ticker,nombre:x.nombre,plazo:pl.value,acciones:acc,precioCompra:x.precio,fecha:new Date().toLocaleDateString('es-ES'),estado:'activa'});
+  guardarOps();cerrar();tab='ops';render();toast('Compra registrada a '+eur(x.precio));
+}
+function vender(id){
+  var o=ops.find(function(p){return String(p.id)===String(id)});if(!o)return;
+  var r=buscar(o.ticker);if(!r){toast('No hay precio actual para este activo');return}
+  var res=(r.precio-o.precioCompra)*o.acciones;
+  if(!confirm('Vender '+o.nombre+' a '+eur(r.precio)+'?\nResultado: '+(res>=0?'+':'')+eur(res)))return;
+  o.estado='cerrada';o.precioVenta=r.precio;o.fechaVenta=new Date().toLocaleDateString('es-ES');
+  guardarOps();render();toast('Venta registrada');
+}
+
+document.addEventListener('click',function(e){
+  var el=e.target.closest('[data-act]');if(!el)return;
+  var a=el.dataset.act;
+  if(a==='cerrar'&&e.target!==el)return;
+  if(a==='tab'){tab=el.dataset.k;render();window.scrollTo(0,0)}
+  else if(a==='filtro'){filtro=el.dataset.k;render()}
+  else if(a==='abrir')abrir(el.dataset.t);
+  else if(a==='cerrar')cerrar();
+  else if(a==='comprar'){$('#buy').style.display='block';el.style.display='none';$('#buy').scrollIntoView({behavior:'smooth'})}
+  else if(a==='confirmar')confirmar();
+  else if(a==='vender')vender(el.dataset.id);
+  else if(a==='export'){
+    var s=JSON.stringify(ops);
+    if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(s).then(function(){toast('Copia guardada en el portapapeles')},function(){prompt('Copia este texto:',s)})}
+    else prompt('Copia este texto:',s);
+  }
+  else if(a==='import'){
+    var t=prompt('Pega aquí la copia de seguridad:');
+    if(t){try{var p=JSON.parse(t);if(Array.isArray(p)){ops=p;guardarOps();render();toast('Copia restaurada')}else toast('Formato no válido')}catch(err){toast('Formato no válido')}}
+  }
+  else if(a==='enviar'){
+    var i=$('#cin'),v=i.value.trim();if(!v)return;
+    chat.push({r:'me',t:v});chat.push({r:'bot',t:responder(v)});render();window.scrollTo(0,document.body.scrollHeight);
+  }
+});
+document.addEventListener('input',function(e){
+  if(e.target.id==='q'){busqueda=e.target.value;$('#lista').innerHTML=htmlLista()}
+  else if(e.target.id==='inEur'&&actual){var x=buscar(actual),v=parseFloat(e.target.value);$('#inAcc').value=v>0&&x?(v/x.precio).toFixed(4):''}
+  else if(e.target.id==='inAcc'&&actual){var y=buscar(actual),w=parseFloat(e.target.value);$('#inEur').value=w>0&&y?(w*y.precio).toFixed(2):''}
+});
+document.addEventListener('keydown',function(e){if(e.key==='Enter'&&e.target.id==='cin'){var b=document.querySelector('[data-act=enviar]');if(b)b.click()}});
+
+cargarOps();render();
+fetch('resultados.json?'+Date.now()).then(function(r){if(!r.ok)throw new Error(r.status);return r.json()}).then(function(d){datos=d;render()}).catch(function(){cargaError='No se pudieron cargar los análisis. Comprueba que el robot haya generado resultados.json y que el repositorio sea público.';render()});
+</script>
+</body>
+</html>
