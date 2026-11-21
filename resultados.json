@@ -1,0 +1,3025 @@
+{
+  "actualizado": "2026-11-21 11:54 UTC",
+  "total_analizados": 110,
+  "resultados": [
+    {
+      "nombre": "SAP",
+      "ticker": "SAP.DE",
+      "precio": 183.68,
+      "compra": 90,
+      "venta": 10,
+      "señales_compra": [
+        "tendencia alcista",
+        "RSI sobrevendido",
+        "en soporte Bollinger",
+        "sobre media 200",
+        "volumen alto",
+        "margen 20.4%",
+        "ingresos creciendo",
+        "deuda controlada"
+      ],
+      "señales_venta": [
+        "MACD negativo"
+      ],
+      "noticias": [],
+      "rsi": 25.1,
+      "ma20": 207.64,
+      "ma50": 197.95,
+      "horizonte": [
+        "corto",
+        "largo"
+      ],
+      "rec_plazo": "largo plazo",
+      "sector": "tecnología",
+      "tendencia_alcista": "True",
+      "sobre_ma200": "True"
+    },
+    {
+      "nombre": "TotalEnergies",
+      "ticker": "TTE.PA",
+      "precio": 78.19,
+      "compra": 90,
+      "venta": 10,
+      "señales_compra": [
+        "tendencia alcista",
+        "RSI sobrevendido",
+        "en soporte Bollinger",
+        "sobre media 200",
+        "PER atractivo (9.1)",
+        "margen 10.5%",
+        "ingresos creciendo",
+        "deuda controlada"
+      ],
+      "señales_venta": [
+        "MACD negativo"
+      ],
+      "noticias": [],
+      "rsi": 29.8,
+      "ma20": 81.45,
+      "ma50": 79.7,
+      "horizonte": [
+        "corto",
+        "largo"
+      ],
+      "rec_plazo": "largo plazo",
+      "sector": "energía",
+      "tendencia_alcista": "True",
+      "sobre_ma200": "True"
+    },
+    {
+      "nombre": "Dassault Systemes",
+      "ticker": "DSY.PA",
+      "precio": 22.25,
+      "compra": 90,
+      "venta": 10,
+      "señales_compra": [
+        "tendencia alcista",
+        "RSI sobrevendido",
+        "en soporte Bollinger",
+        "sobre media 200",
+        "volumen alto",
+        "margen 21.3%",
+        "ingresos creciendo",
+        "deuda controlada"
+      ],
+      "señales_venta": [
+        "MACD negativo"
+      ],
+      "noticias": [],
+      "rsi": 26.7,
+      "ma20": 24.93,
+      "ma50": 23.03,
+      "horizonte": [
+        "corto",
+        "largo"
+      ],
+      "rec_plazo": "largo plazo",
+      "sector": "tecnología",
+      "tendencia_alcista": "True",
+      "sobre_ma200": "True"
+    },
+    {
+      "nombre": "ENI",
+      "ticker": "ENI.MI",
+      "precio": 24.16,
+      "compra": 85,
+      "venta": 10,
+      "señales_compra": [
+        "tendencia alcista",
+        "RSI sobrevendido",
+        "en soporte Bollinger",
+        "sobre media 200",
+        "PER atractivo (16.9)",
+        "ingresos creciendo"
+      ],
+      "señales_venta": [
+        "MACD negativo"
+      ],
+      "noticias": [],
+      "rsi": 25.5,
+      "ma20": 25.73,
+      "ma50": 25.16,
+      "horizonte": [
+        "corto",
+        "largo"
+      ],
+      "rec_plazo": "largo plazo",
+      "sector": "energía",
+      "tendencia_alcista": "True",
+      "sobre_ma200": "True"
+    },
+    {
+      "nombre": "Colonial",
+      "ticker": "COL.MC",
+      "precio": 4.87,
+      "compra": 80,
+      "venta": 15,
+      "señales_compra": [
+        "tendencia alcista",
+        "RSI sobrevendido",
+        "en soporte Bollinger",
+        "PER atractivo (8.9)",
+        "margen 75.2%"
+      ],
+      "señales_venta": [
+        "MACD negativo"
+      ],
+      "noticias": [],
+      "rsi": 28.5,
+      "ma20": 5.14,
+      "ma50": 5.05,
+      "horizonte": [
+        "corto"
+      ],
+      "rec_plazo": "corto plazo",
+      "sector": "otros",
+      "tendencia_alcista": "True",
+      "sobre_ma200": "False"
+    },
+    {
+      "nombre": "BMW",
+      "ticker": "BMW.DE",
+      "precio": 53.46,
+      "compra": 75,
+      "venta": 15,
+      "señales_compra": [
+        "tendencia alcista",
+        "RSI sobrevendido",
+        "en soporte Bollinger",
+        "volumen alto",
+        "PER atractivo (5.4)"
+      ],
+      "señales_venta": [
+        "MACD negativo"
+      ],
+      "noticias": [],
+      "rsi": 29.5,
+      "ma20": 57.56,
+      "ma50": 57.11,
+      "horizonte": [
+        "corto"
+      ],
+      "rec_plazo": "corto plazo",
+      "sector": "otros",
+      "tendencia_alcista": "True",
+      "sobre_ma200": "False"
+    },
+    {
+      "nombre": "Naturgy",
+      "ticker": "NTGY.MC",
+      "precio": 30.02,
+      "compra": 70,
+      "venta": 10,
+      "señales_compra": [
+        "tendencia alcista",
+        "MACD positivo",
+        "sobre media 200",
+        "PER atractivo (13.9)",
+        "margen 10.4%",
+        "ingresos creciendo"
+      ],
+      "señales_venta": [
+        "RSI elevado"
+      ],
+      "noticias": [],
+      "rsi": 65.2,
+      "ma20": 29.83,
+      "ma50": 29.44,
+      "horizonte": [
+        "largo"
+      ],
+      "rec_plazo": "largo plazo",
+      "sector": "energía",
+      "tendencia_alcista": "True",
+      "sobre_ma200": "True"
+    },
+    {
+      "nombre": "Capgemini",
+      "ticker": "CAP.PA",
+      "precio": 117.7,
+      "compra": 70,
+      "venta": 10,
+      "señales_compra": [
+        "tendencia alcista",
+        "RSI bajo",
+        "en soporte Bollinger",
+        "sobre media 200",
+        "PER atractivo (14.7)",
+        "ingresos creciendo"
+      ],
+      "señales_venta": [
+        "MACD negativo"
+      ],
+      "noticias": [],
+      "rsi": 35.4,
+      "ma20": 124.14,
+      "ma50": 116.99,
+      "horizonte": [
+        "largo"
+      ],
+      "rec_plazo": "largo plazo",
+      "sector": "tecnología",
+      "tendencia_alcista": "True",
+      "sobre_ma200": "True"
+    },
+    {
+      "nombre": "Meliá",
+      "ticker": "MEL.MC",
+      "precio": 11.08,
+      "compra": 65,
+      "venta": 10,
+      "señales_compra": [
+        "tendencia alcista",
+        "MACD positivo",
+        "sobre media 200",
+        "PER atractivo (16.3)",
+        "ingresos creciendo"
+      ],
+      "señales_venta": [
+        "RSI elevado"
+      ],
+      "noticias": [],
+      "rsi": 65.5,
+      "ma20": 10.85,
+      "ma50": 10.38,
+      "horizonte": [
+        "largo"
+      ],
+      "rec_plazo": "largo plazo",
+      "sector": "otros",
+      "tendencia_alcista": "True",
+      "sobre_ma200": "True"
+    },
+    {
+      "nombre": "Endesa",
+      "ticker": "ELE.MC",
+      "precio": 43.12,
+      "compra": 65,
+      "venta": 10,
+      "señales_compra": [
+        "tendencia alcista",
+        "en soporte Bollinger",
+        "sobre media 200",
+        "PER atractivo (18.1)",
+        "margen 10.9%",
+        "ingresos creciendo"
+      ],
+      "señales_venta": [
+        "MACD negativo"
+      ],
+      "noticias": [],
+      "rsi": 47.7,
+      "ma20": 44.12,
+      "ma50": 43.07,
+      "horizonte": [
+        "largo"
+      ],
+      "rec_plazo": "largo plazo",
+      "sector": "energía",
+      "tendencia_alcista": "True",
+      "sobre_ma200": "True"
+    },
+    {
+      "nombre": "Fluidra",
+      "ticker": "FDR.MC",
+      "precio": 18.03,
+      "compra": 65,
+      "venta": 15,
+      "señales_compra": [
+        "tendencia alcista",
+        "RSI sobrevendido",
+        "en soporte Bollinger",
+        "ingresos creciendo"
+      ],
+      "señales_venta": [
+        "MACD negativo"
+      ],
+      "noticias": [],
+      "rsi": 21.3,
+      "ma20": 19.09,
+      "ma50": 18.23,
+      "horizonte": [
+        "corto"
+      ],
+      "rec_plazo": "corto plazo",
+      "sector": "otros",
+      "tendencia_alcista": "True",
+      "sobre_ma200": "False"
+    },
+    {
+      "nombre": "LVMH",
+      "ticker": "MC.PA",
+      "precio": 381.95,
+      "compra": 65,
+      "venta": 15,
+      "señales_compra": [
+        "tendencia alcista",
+        "RSI bajo",
+        "en soporte Bollinger",
+        "PER atractivo (17.4)",
+        "margen 13.7%"
+      ],
+      "señales_venta": [
+        "MACD negativo"
+      ],
+      "noticias": [],
+      "rsi": 42.5,
+      "ma20": 397.1,
+      "ma50": 394.74,
+      "horizonte": [
+        "medio"
+      ],
+      "rec_plazo": "medio plazo",
+      "sector": "lujo",
+      "tendencia_alcista": "True",
+      "sobre_ma200": "False"
+    },
+    {
+      "nombre": "Renault",
+      "ticker": "RNO.PA",
+      "precio": 26.13,
+      "compra": 65,
+      "venta": 15,
+      "señales_compra": [
+        "tendencia alcista",
+        "RSI bajo",
+        "en soporte Bollinger",
+        "PER atractivo (8.3)",
+        "ingresos creciendo"
+      ],
+      "señales_venta": [
+        "MACD negativo"
+      ],
+      "noticias": [],
+      "rsi": 37.5,
+      "ma20": 27.8,
+      "ma50": 27.22,
+      "horizonte": [
+        "medio"
+      ],
+      "rec_plazo": "medio plazo",
+      "sector": "otros",
+      "tendencia_alcista": "True",
+      "sobre_ma200": "False"
+    },
+    {
+      "nombre": "Pirelli",
+      "ticker": "PIRC.MI",
+      "precio": 6.26,
+      "compra": 65,
+      "venta": 10,
+      "señales_compra": [
+        "tendencia alcista",
+        "RSI bajo",
+        "en soporte Bollinger",
+        "sobre media 200",
+        "PER atractivo (13.3)",
+        "deuda controlada"
+      ],
+      "señales_venta": [
+        "MACD negativo"
+      ],
+      "noticias": [],
+      "rsi": 32.1,
+      "ma20": 6.65,
+      "ma50": 6.6,
+      "horizonte": [
+        "corto",
+        "largo"
+      ],
+      "rec_plazo": "largo plazo",
+      "sector": "otros",
+      "tendencia_alcista": "True",
+      "sobre_ma200": "True"
+    },
+    {
+      "nombre": "Moncler",
+      "ticker": "MONC.MI",
+      "precio": 39.49,
+      "compra": 65,
+      "venta": 35,
+      "señales_compra": [
+        "RSI sobrevendido",
+        "en soporte Bollinger",
+        "PER atractivo (17.6)",
+        "margen 20.0%",
+        "ingresos creciendo",
+        "deuda controlada"
+      ],
+      "señales_venta": [
+        "tendencia bajista",
+        "MACD negativo"
+      ],
+      "noticias": [],
+      "rsi": 24.8,
+      "ma20": 43.46,
+      "ma50": 43.59,
+      "horizonte": [
+        "corto"
+      ],
+      "rec_plazo": "corto plazo",
+      "sector": "lujo",
+      "tendencia_alcista": "False",
+      "sobre_ma200": "False"
+    },
+    {
+      "nombre": "Sonae",
+      "ticker": "SON.LS",
+      "precio": 2.26,
+      "compra": 65,
+      "venta": 10,
+      "señales_compra": [
+        "tendencia alcista",
+        "MACD positivo",
+        "sobre media 200",
+        "PER atractivo (11.9)",
+        "ingresos creciendo"
+      ],
+      "señales_venta": [
+        "RSI elevado"
+      ],
+      "noticias": [],
+      "rsi": 68.6,
+      "ma20": 2.22,
+      "ma50": 2.14,
+      "horizonte": [
+        "largo"
+      ],
+      "rec_plazo": "largo plazo",
+      "sector": "otros",
+      "tendencia_alcista": "True",
+      "sobre_ma200": "True"
+    },
+    {
+      "nombre": "Enagás",
+      "ticker": "ENG.MC",
+      "precio": 17.67,
+      "compra": 60,
+      "venta": 10,
+      "señales_compra": [
+        "tendencia alcista",
+        "en soporte Bollinger",
+        "sobre media 200",
+        "PER atractivo (12.9)",
+        "margen 30.1%"
+      ],
+      "señales_venta": [
+        "MACD negativo"
+      ],
+      "noticias": [],
+      "rsi": 50.0,
+      "ma20": 17.8,
+      "ma50": 17.13,
+      "horizonte": [
+        "largo"
+      ],
+      "rec_plazo": "largo plazo",
+      "sector": "energía",
+      "tendencia_alcista": "True",
+      "sobre_ma200": "True"
+    },
+    {
+      "nombre": "Indra",
+      "ticker": "IDR.MC",
+      "precio": 49.67,
+      "compra": 60,
+      "venta": 35,
+      "señales_compra": [
+        "RSI sobrevendido",
+        "en soporte Bollinger",
+        "PER atractivo (15.1)",
+        "ingresos creciendo"
+      ],
+      "señales_venta": [
+        "tendencia bajista",
+        "MACD negativo"
+      ],
+      "noticias": [],
+      "rsi": 17.1,
+      "ma20": 59.04,
+      "ma50": 60.23,
+      "horizonte": [
+        "corto"
+      ],
+      "rec_plazo": "corto plazo",
+      "sector": "tecnología",
+      "tendencia_alcista": "False",
+      "sobre_ma200": "False"
+    },
+    {
+      "nombre": "Adidas",
+      "ticker": "ADS.DE",
+      "precio": 165.0,
+      "compra": 60,
+      "venta": 10,
+      "señales_compra": [
+        "tendencia alcista",
+        "RSI bajo",
+        "sobre media 200",
+        "PER atractivo (17.8)",
+        "ingresos creciendo"
+      ],
+      "señales_venta": [
+        "MACD negativo"
+      ],
+      "noticias": [],
+      "rsi": 40.2,
+      "ma20": 171.64,
+      "ma50": 157.88,
+      "horizonte": [
+        "largo"
+      ],
+      "rec_plazo": "largo plazo",
+      "sector": "lujo",
+      "tendencia_alcista": "True",
+      "sobre_ma200": "True"
+    },
+    {
+      "nombre": "Munich Re",
+      "ticker": "MUV2.DE",
+      "precio": 580.0,
+      "compra": 60,
+      "venta": 10,
+      "señales_compra": [
+        "tendencia alcista",
+        "sobre media 200",
+        "volumen alto",
+        "PER atractivo (10.9)",
+        "margen 10.4%",
+        "ingresos creciendo",
+        "deuda controlada"
+      ],
+      "señales_venta": [
+        "MACD negativo"
+      ],
+      "noticias": [],
+      "rsi": 55.2,
+      "ma20": 573.8,
+      "ma50": 542.26,
+      "horizonte": [
+        "largo"
+      ],
+      "rec_plazo": "largo plazo",
+      "sector": "otros",
+      "tendencia_alcista": "True",
+      "sobre_ma200": "True"
+    },
+    {
+      "nombre": "E.ON",
+      "ticker": "EOAN.DE",
+      "precio": 18.61,
+      "compra": 60,
+      "venta": 10,
+      "señales_compra": [
+        "tendencia alcista",
+        "en soporte Bollinger",
+        "sobre media 200",
+        "PER atractivo (10.9)",
+        "ingresos creciendo"
+      ],
+      "señales_venta": [
+        "MACD negativo"
+      ],
+      "noticias": [],
+      "rsi": 48.0,
+      "ma20": 18.9,
+      "ma50": 17.99,
+      "horizonte": [
+        "largo"
+      ],
+      "rec_plazo": "largo plazo",
+      "sector": "energía",
+      "tendencia_alcista": "True",
+      "sobre_ma200": "True"
+    },
+    {
+      "nombre": "NN Group",
+      "ticker": "NN.AS",
+      "precio": 76.98,
+      "compra": 60,
+      "venta": 10,
+      "señales_compra": [
+        "tendencia alcista",
+        "en soporte Bollinger",
+        "sobre media 200",
+        "PER atractivo (11.4)",
+        "margen 13.3%"
+      ],
+      "señales_venta": [
+        "MACD negativo"
+      ],
+      "noticias": [],
+      "rsi": 46.7,
+      "ma20": 79.25,
+      "ma50": 78.29,
+      "horizonte": [
+        "largo"
+      ],
+      "rec_plazo": "largo plazo",
+      "sector": "otros",
+      "tendencia_alcista": "True",
+      "sobre_ma200": "True"
+    },
+    {
+      "nombre": "Galp",
+      "ticker": "GALP.LS",
+      "precio": 18.2,
+      "compra": 60,
+      "venta": 35,
+      "señales_compra": [
+        "RSI sobrevendido",
+        "en soporte Bollinger",
+        "PER atractivo (13.2)",
+        "ingresos creciendo"
+      ],
+      "señales_venta": [
+        "tendencia bajista",
+        "MACD negativo"
+      ],
+      "noticias": [],
+      "rsi": 18.3,
+      "ma20": 19.57,
+      "ma50": 21.22,
+      "horizonte": [
+        "corto"
+      ],
+      "rec_plazo": "corto plazo",
+      "sector": "energía",
+      "tendencia_alcista": "False",
+      "sobre_ma200": "False"
+    },
+    {
+      "nombre": "ETF DAX",
+      "ticker": "EXS1.DE",
+      "precio": 204.3,
+      "compra": 60,
+      "venta": 15,
+      "señales_compra": [
+        "tendencia alcista",
+        "RSI bajo",
+        "en soporte Bollinger",
+        "volumen alto",
+        "PER atractivo (17.0)"
+      ],
+      "señales_venta": [
+        "MACD negativo"
+      ],
+      "noticias": [],
+      "rsi": 36.3,
+      "ma20": 214.45,
+      "ma50": 211.09,
+      "horizonte": [
+        "corto"
+      ],
+      "rec_plazo": "corto plazo",
+      "sector": "otros",
+      "tendencia_alcista": "True",
+      "sobre_ma200": "False"
+    },
+    {
+      "nombre": "Repsol",
+      "ticker": "REP.MC",
+      "precio": 28.46,
+      "compra": 55,
+      "venta": 30,
+      "señales_compra": [
+        "RSI bajo",
+        "en soporte Bollinger",
+        "sobre media 200",
+        "PER atractivo (5.1)",
+        "ingresos creciendo",
+        "deuda controlada"
+      ],
+      "señales_venta": [
+        "tendencia bajista",
+        "MACD negativo"
+      ],
+      "noticias": [],
+      "rsi": 40.6,
+      "ma20": 29.6,
+      "ma50": 29.61,
+      "horizonte": [
+        "medio"
+      ],
+      "rec_plazo": "medio plazo",
+      "sector": "energía",
+      "tendencia_alcista": "False",
+      "sobre_ma200": "True"
+    },
+    {
+      "nombre": "Amadeus",
+      "ticker": "AMS.MC",
+      "precio": 59.74,
+      "compra": 55,
+      "venta": 10,
+      "señales_compra": [
+        "tendencia alcista",
+        "sobre media 200",
+        "PER atractivo (19.2)",
+        "margen 19.9%",
+        "ingresos creciendo"
+      ],
+      "señales_venta": [
+        "MACD negativo"
+      ],
+      "noticias": [],
+      "rsi": 51.7,
+      "ma20": 59.89,
+      "ma50": 56.28,
+      "horizonte": [
+        "largo"
+      ],
+      "rec_plazo": "largo plazo",
+      "sector": "tecnología",
+      "tendencia_alcista": "True",
+      "sobre_ma200": "True"
+    },
+    {
+      "nombre": "IAG",
+      "ticker": "IAG.MC",
+      "precio": 5.24,
+      "compra": 55,
+      "venta": 10,
+      "señales_compra": [
+        "tendencia alcista",
+        "MACD positivo",
+        "sobre media 200",
+        "PER atractivo (8.1)"
+      ],
+      "señales_venta": [
+        "RSI elevado"
+      ],
+      "noticias": [],
+      "rsi": 61.2,
+      "ma20": 5.19,
+      "ma50": 5.06,
+      "horizonte": [
+        "largo"
+      ],
+      "rec_plazo": "largo plazo",
+      "sector": "otros",
+      "tendencia_alcista": "True",
+      "sobre_ma200": "True"
+    },
+    {
+      "nombre": "Vidrala",
+      "ticker": "VID.MC",
+      "precio": 90.0,
+      "compra": 55,
+      "venta": 10,
+      "señales_compra": [
+        "tendencia alcista",
+        "sobre media 200",
+        "PER atractivo (15.2)",
+        "margen 14.4%",
+        "deuda controlada"
+      ],
+      "señales_venta": [
+        "MACD negativo"
+      ],
+      "noticias": [],
+      "rsi": 56.8,
+      "ma20": 88.83,
+      "ma50": 86.15,
+      "horizonte": [
+        "largo"
+      ],
+      "rec_plazo": "largo plazo",
+      "sector": "otros",
+      "tendencia_alcista": "True",
+      "sobre_ma200": "True"
+    },
+    {
+      "nombre": "Allianz",
+      "ticker": "ALV.DE",
+      "precio": 451.8,
+      "compra": 55,
+      "venta": 10,
+      "señales_compra": [
+        "tendencia alcista",
+        "sobre media 200",
+        "volumen alto",
+        "PER atractivo (15.0)",
+        "ingresos creciendo"
+      ],
+      "señales_venta": [
+        "MACD negativo"
+      ],
+      "noticias": [],
+      "rsi": 56.3,
+      "ma20": 454.09,
+      "ma50": 438.29,
+      "horizonte": [
+        "largo"
+      ],
+      "rec_plazo": "largo plazo",
+      "sector": "otros",
+      "tendencia_alcista": "True",
+      "sobre_ma200": "True"
+    },
+    {
+      "nombre": "BASF",
+      "ticker": "BAS.DE",
+      "precio": 49.36,
+      "compra": 55,
+      "venta": 15,
+      "señales_compra": [
+        "tendencia alcista",
+        "RSI bajo",
+        "en soporte Bollinger",
+        "volumen alto",
+        "ingresos creciendo"
+      ],
+      "señales_venta": [
+        "MACD negativo"
+      ],
+      "noticias": [],
+      "rsi": 31.1,
+      "ma20": 53.22,
+      "ma50": 52.24,
+      "horizonte": [
+        "corto"
+      ],
+      "rec_plazo": "corto plazo",
+      "sector": "otros",
+      "tendencia_alcista": "True",
+      "sobre_ma200": "False"
+    },
+    {
+      "nombre": "Deutsche Bank",
+      "ticker": "DBK.DE",
+      "precio": 29.13,
+      "compra": 55,
+      "venta": 15,
+      "señales_compra": [
+        "tendencia alcista",
+        "RSI bajo",
+        "PER atractivo (8.7)",
+        "margen 22.7%"
+      ],
+      "señales_venta": [
+        "MACD negativo"
+      ],
+      "noticias": [],
+      "rsi": 42.8,
+      "ma20": 31.27,
+      "ma50": 31.06,
+      "horizonte": [
+        "medio"
+      ],
+      "rec_plazo": "medio plazo",
+      "sector": "banca",
+      "tendencia_alcista": "True",
+      "sobre_ma200": "False"
+    },
+    {
+      "nombre": "Hannover Re",
+      "ticker": "HNR1.DE",
+      "precio": 293.8,
+      "compra": 55,
+      "venta": 10,
+      "señales_compra": [
+        "tendencia alcista",
+        "sobre media 200",
+        "PER atractivo (12.5)",
+        "margen 12.2%",
+        "deuda controlada"
+      ],
+      "señales_venta": [
+        "MACD negativo"
+      ],
+      "noticias": [],
+      "rsi": 52.0,
+      "ma20": 292.35,
+      "ma50": 274.26,
+      "horizonte": [
+        "largo"
+      ],
+      "rec_plazo": "largo plazo",
+      "sector": "otros",
+      "tendencia_alcista": "True",
+      "sobre_ma200": "True"
+    },
+    {
+      "nombre": "Puma",
+      "ticker": "PUM.DE",
+      "precio": 23.43,
+      "compra": 55,
+      "venta": 15,
+      "señales_compra": [
+        "tendencia alcista",
+        "RSI sobrevendido",
+        "en soporte Bollinger"
+      ],
+      "señales_venta": [
+        "MACD negativo"
+      ],
+      "noticias": [],
+      "rsi": 19.9,
+      "ma20": 25.97,
+      "ma50": 24.19,
+      "horizonte": [
+        "corto"
+      ],
+      "rec_plazo": "corto plazo",
+      "sector": "lujo",
+      "tendencia_alcista": "True",
+      "sobre_ma200": "False"
+    },
+    {
+      "nombre": "Leonardo",
+      "ticker": "LDO.MI",
+      "precio": 47.83,
+      "compra": 55,
+      "venta": 15,
+      "señales_compra": [
+        "tendencia alcista",
+        "RSI bajo",
+        "en soporte Bollinger",
+        "ingresos creciendo",
+        "deuda controlada"
+      ],
+      "señales_venta": [
+        "MACD negativo"
+      ],
+      "noticias": [],
+      "rsi": 34.1,
+      "ma20": 50.2,
+      "ma50": 49.29,
+      "horizonte": [
+        "corto"
+      ],
+      "rec_plazo": "corto plazo",
+      "sector": "industria",
+      "tendencia_alcista": "True",
+      "sobre_ma200": "False"
+    },
+    {
+      "nombre": "Inditex",
+      "ticker": "ITX.MC",
+      "precio": 57.78,
+      "compra": 50,
+      "venta": 10,
+      "señales_compra": [
+        "tendencia alcista",
+        "sobre media 200",
+        "margen 15.5%",
+        "ingresos creciendo",
+        "deuda controlada"
+      ],
+      "señales_venta": [
+        "MACD negativo"
+      ],
+      "noticias": [],
+      "rsi": 51.3,
+      "ma20": 58.38,
+      "ma50": 55.19,
+      "horizonte": [
+        "largo"
+      ],
+      "rec_plazo": "largo plazo",
+      "sector": "otros",
+      "tendencia_alcista": "True",
+      "sobre_ma200": "True"
+    },
+    {
+      "nombre": "Grifols",
+      "ticker": "GRF.MC",
+      "precio": 10.9,
+      "compra": 50,
+      "venta": 10,
+      "señales_compra": [
+        "tendencia alcista",
+        "sobre media 200",
+        "PER atractivo (15.4)",
+        "ingresos creciendo"
+      ],
+      "señales_venta": [
+        "MACD negativo"
+      ],
+      "noticias": [],
+      "rsi": 46.8,
+      "ma20": 11.19,
+      "ma50": 10.34,
+      "horizonte": [
+        "largo"
+      ],
+      "rec_plazo": "largo plazo",
+      "sector": "otros",
+      "tendencia_alcista": "True",
+      "sobre_ma200": "True"
+    },
+    {
+      "nombre": "Bankinter",
+      "ticker": "BKT.MC",
+      "precio": 13.68,
+      "compra": 50,
+      "venta": 35,
+      "señales_compra": [
+        "RSI bajo",
+        "en soporte Bollinger",
+        "PER atractivo (10.8)",
+        "margen 41.1%",
+        "ingresos creciendo"
+      ],
+      "señales_venta": [
+        "tendencia bajista",
+        "MACD negativo"
+      ],
+      "noticias": [],
+      "rsi": 42.9,
+      "ma20": 14.36,
+      "ma50": 15.22,
+      "horizonte": [
+        "medio"
+      ],
+      "rec_plazo": "medio plazo",
+      "sector": "banca",
+      "tendencia_alcista": "False",
+      "sobre_ma200": "False"
+    },
+    {
+      "nombre": "Sabadell",
+      "ticker": "SAB.MC",
+      "precio": 3.55,
+      "compra": 50,
+      "venta": 10,
+      "señales_compra": [
+        "tendencia alcista",
+        "sobre media 200",
+        "PER atractivo (14.2)",
+        "margen 41.6%"
+      ],
+      "señales_venta": [
+        "MACD negativo"
+      ],
+      "noticias": [],
+      "rsi": 53.6,
+      "ma20": 3.62,
+      "ma50": 3.61,
+      "horizonte": [
+        "largo"
+      ],
+      "rec_plazo": "largo plazo",
+      "sector": "banca",
+      "tendencia_alcista": "True",
+      "sobre_ma200": "True"
+    },
+    {
+      "nombre": "Pharma Mar",
+      "ticker": "PHM.MC",
+      "precio": 57.8,
+      "compra": 50,
+      "venta": 35,
+      "señales_compra": [
+        "RSI bajo",
+        "en soporte Bollinger",
+        "PER atractivo (14.7)",
+        "margen 28.8%",
+        "ingresos creciendo",
+        "deuda controlada"
+      ],
+      "señales_venta": [
+        "tendencia bajista",
+        "MACD negativo"
+      ],
+      "noticias": [],
+      "rsi": 30.9,
+      "ma20": 66.1,
+      "ma50": 69.29,
+      "horizonte": [
+        "corto"
+      ],
+      "rec_plazo": "corto plazo",
+      "sector": "otros",
+      "tendencia_alcista": "False",
+      "sobre_ma200": "False"
+    },
+    {
+      "nombre": "Viscofan",
+      "ticker": "VIS.MC",
+      "precio": 54.7,
+      "compra": 50,
+      "venta": 15,
+      "señales_compra": [
+        "tendencia alcista",
+        "PER atractivo (15.3)",
+        "margen 12.7%",
+        "ingresos creciendo",
+        "deuda controlada"
+      ],
+      "señales_venta": [
+        "MACD negativo"
+      ],
+      "noticias": [],
+      "rsi": 53.3,
+      "ma20": 55.13,
+      "ma50": 54.46,
+      "horizonte": [
+        "medio"
+      ],
+      "rec_plazo": "medio plazo",
+      "sector": "otros",
+      "tendencia_alcista": "True",
+      "sobre_ma200": "False"
+    },
+    {
+      "nombre": "Logista",
+      "ticker": "LOG.MC",
+      "precio": 36.48,
+      "compra": 50,
+      "venta": 10,
+      "señales_compra": [
+        "tendencia alcista",
+        "en soporte Bollinger",
+        "sobre media 200",
+        "PER atractivo (17.1)"
+      ],
+      "señales_venta": [
+        "MACD negativo"
+      ],
+      "noticias": [],
+      "rsi": 47.5,
+      "ma20": 36.85,
+      "ma50": 36.13,
+      "horizonte": [
+        "largo"
+      ],
+      "rec_plazo": "largo plazo",
+      "sector": "otros",
+      "tendencia_alcista": "True",
+      "sobre_ma200": "True"
+    },
+    {
+      "nombre": "Cellnex",
+      "ticker": "CLNX.MC",
+      "precio": 24.9,
+      "compra": 50,
+      "venta": 15,
+      "señales_compra": [
+        "tendencia alcista",
+        "RSI bajo",
+        "en soporte Bollinger",
+        "ingresos creciendo"
+      ],
+      "señales_venta": [
+        "MACD negativo"
+      ],
+      "noticias": [],
+      "rsi": 34.0,
+      "ma20": 26.06,
+      "ma50": 25.07,
+      "horizonte": [
+        "corto"
+      ],
+      "rec_plazo": "corto plazo",
+      "sector": "otros",
+      "tendencia_alcista": "True",
+      "sobre_ma200": "False"
+    },
+    {
+      "nombre": "LOreal",
+      "ticker": "OR.PA",
+      "precio": 435.0,
+      "compra": 50,
+      "venta": 10,
+      "señales_compra": [
+        "tendencia alcista",
+        "sobre media 200",
+        "margen 13.9%",
+        "ingresos creciendo",
+        "deuda controlada"
+      ],
+      "señales_venta": [
+        "MACD negativo"
+      ],
+      "noticias": [],
+      "rsi": 48.8,
+      "ma20": 440.86,
+      "ma50": 408.97,
+      "horizonte": [
+        "largo"
+      ],
+      "rec_plazo": "largo plazo",
+      "sector": "otros",
+      "tendencia_alcista": "True",
+      "sobre_ma200": "True"
+    },
+    {
+      "nombre": "AXA",
+      "ticker": "CS.PA",
+      "precio": 45.14,
+      "compra": 50,
+      "venta": 20,
+      "señales_compra": [
+        "tendencia alcista",
+        "sobre media 200",
+        "PER atractivo (12.2)",
+        "margen 10.4%"
+      ],
+      "señales_venta": [
+        "MACD negativo",
+        "RSI elevado"
+      ],
+      "noticias": [],
+      "rsi": 63.3,
+      "ma20": 44.73,
+      "ma50": 43.68,
+      "horizonte": [
+        "largo"
+      ],
+      "rec_plazo": "largo plazo",
+      "sector": "otros",
+      "tendencia_alcista": "True",
+      "sobre_ma200": "True"
+    },
+    {
+      "nombre": "Pernod Ricard",
+      "ticker": "RI.PA",
+      "precio": 71.24,
+      "compra": 50,
+      "venta": 20,
+      "señales_compra": [
+        "tendencia alcista",
+        "sobre media 200",
+        "PER atractivo (14.9)",
+        "margen 12.8%"
+      ],
+      "señales_venta": [
+        "MACD negativo",
+        "RSI elevado"
+      ],
+      "noticias": [],
+      "rsi": 60.3,
+      "ma20": 70.11,
+      "ma50": 65.29,
+      "horizonte": [
+        "largo"
+      ],
+      "rec_plazo": "largo plazo",
+      "sector": "otros",
+      "tendencia_alcista": "True",
+      "sobre_ma200": "True"
+    },
+    {
+      "nombre": "UniCredit",
+      "ticker": "UCG.MI",
+      "precio": 78.28,
+      "compra": 50,
+      "venta": 20,
+      "señales_compra": [
+        "MACD positivo",
+        "sobre media 200",
+        "PER atractivo (10.4)",
+        "margen 45.1%",
+        "ingresos creciendo"
+      ],
+      "señales_venta": [
+        "tendencia bajista"
+      ],
+      "noticias": [],
+      "rsi": 60.0,
+      "ma20": 78.61,
+      "ma50": 79.04,
+      "horizonte": [
+        "medio"
+      ],
+      "rec_plazo": "medio plazo",
+      "sector": "banca",
+      "tendencia_alcista": "False",
+      "sobre_ma200": "True"
+    },
+    {
+      "nombre": "Generali",
+      "ticker": "G.MI",
+      "precio": 43.34,
+      "compra": 50,
+      "venta": 10,
+      "señales_compra": [
+        "tendencia alcista",
+        "sobre media 200",
+        "PER atractivo (14.4)",
+        "ingresos creciendo"
+      ],
+      "señales_venta": [
+        "MACD negativo"
+      ],
+      "noticias": [],
+      "rsi": 53.5,
+      "ma20": 43.69,
+      "ma50": 43.34,
+      "horizonte": [
+        "largo"
+      ],
+      "rec_plazo": "largo plazo",
+      "sector": "otros",
+      "tendencia_alcista": "True",
+      "sobre_ma200": "True"
+    },
+    {
+      "nombre": "ING",
+      "ticker": "INGA.AS",
+      "precio": 27.19,
+      "compra": 50,
+      "venta": 30,
+      "señales_compra": [
+        "RSI bajo",
+        "en soporte Bollinger",
+        "sobre media 200",
+        "PER atractivo (11.6)",
+        "margen 34.4%"
+      ],
+      "señales_venta": [
+        "tendencia bajista",
+        "MACD negativo"
+      ],
+      "noticias": [],
+      "rsi": 43.4,
+      "ma20": 29.01,
+      "ma50": 30.04,
+      "horizonte": [
+        "medio"
+      ],
+      "rec_plazo": "medio plazo",
+      "sector": "banca",
+      "tendencia_alcista": "False",
+      "sobre_ma200": "True"
+    },
+    {
+      "nombre": "Wolters Kluwer",
+      "ticker": "WKL.AS",
+      "precio": 85.88,
+      "compra": 50,
+      "venta": 10,
+      "señales_compra": [
+        "tendencia alcista",
+        "sobre media 200",
+        "PER atractivo (14.7)",
+        "margen 21.9%"
+      ],
+      "señales_venta": [
+        "MACD negativo"
+      ],
+      "noticias": [],
+      "rsi": 46.7,
+      "ma20": 87.83,
+      "ma50": 79.24,
+      "horizonte": [
+        "largo"
+      ],
+      "rec_plazo": "largo plazo",
+      "sector": "otros",
+      "tendencia_alcista": "True",
+      "sobre_ma200": "True"
+    },
+    {
+      "nombre": "IMCD",
+      "ticker": "IMCD.AS",
+      "precio": 101.6,
+      "compra": 50,
+      "venta": 10,
+      "señales_compra": [
+        "tendencia alcista",
+        "RSI bajo",
+        "sobre media 200",
+        "volumen alto",
+        "ingresos creciendo"
+      ],
+      "señales_venta": [
+        "MACD negativo"
+      ],
+      "noticias": [],
+      "rsi": 40.7,
+      "ma20": 103.4,
+      "ma50": 100.22,
+      "horizonte": [
+        "medio"
+      ],
+      "rec_plazo": "medio plazo",
+      "sector": "otros",
+      "tendencia_alcista": "True",
+      "sobre_ma200": "True"
+    },
+    {
+      "nombre": "EDP",
+      "ticker": "EDP.LS",
+      "precio": 4.87,
+      "compra": 50,
+      "venta": 10,
+      "señales_compra": [
+        "tendencia alcista",
+        "sobre media 200",
+        "PER atractivo (14.3)",
+        "ingresos creciendo"
+      ],
+      "señales_venta": [
+        "MACD negativo"
+      ],
+      "noticias": [],
+      "rsi": 51.1,
+      "ma20": 4.94,
+      "ma50": 4.85,
+      "horizonte": [
+        "largo"
+      ],
+      "rec_plazo": "largo plazo",
+      "sector": "energía",
+      "tendencia_alcista": "True",
+      "sobre_ma200": "True"
+    },
+    {
+      "nombre": "Iberdrola",
+      "ticker": "IBE.MC",
+      "precio": 22.67,
+      "compra": 45,
+      "venta": 10,
+      "señales_compra": [
+        "tendencia alcista",
+        "sobre media 200",
+        "margen 14.7%",
+        "ingresos creciendo"
+      ],
+      "señales_venta": [
+        "MACD negativo"
+      ],
+      "noticias": [],
+      "rsi": 56.5,
+      "ma20": 22.64,
+      "ma50": 21.58,
+      "horizonte": [
+        "largo"
+      ],
+      "rec_plazo": "largo plazo",
+      "sector": "energía",
+      "tendencia_alcista": "True",
+      "sobre_ma200": "True"
+    },
+    {
+      "nombre": "ACS",
+      "ticker": "ACS.MC",
+      "precio": 82.8,
+      "compra": 45,
+      "venta": 35,
+      "señales_compra": [
+        "RSI bajo",
+        "en soporte Bollinger",
+        "PER atractivo (17.0)",
+        "ingresos creciendo"
+      ],
+      "señales_venta": [
+        "tendencia bajista",
+        "MACD negativo"
+      ],
+      "noticias": [],
+      "rsi": 34.5,
+      "ma20": 89.61,
+      "ma50": 91.06,
+      "horizonte": [
+        "corto"
+      ],
+      "rec_plazo": "corto plazo",
+      "sector": "industria",
+      "tendencia_alcista": "False",
+      "sobre_ma200": "False"
+    },
+    {
+      "nombre": "Merlin",
+      "ticker": "MRL.MC",
+      "precio": 10.93,
+      "compra": 45,
+      "venta": 35,
+      "señales_compra": [
+        "RSI bajo",
+        "en soporte Bollinger",
+        "PER atractivo (7.5)",
+        "margen 145.3%"
+      ],
+      "señales_venta": [
+        "tendencia bajista",
+        "MACD negativo"
+      ],
+      "noticias": [],
+      "rsi": 37.3,
+      "ma20": 11.35,
+      "ma50": 11.65,
+      "horizonte": [
+        "corto"
+      ],
+      "rec_plazo": "corto plazo",
+      "sector": "otros",
+      "tendencia_alcista": "False",
+      "sobre_ma200": "False"
+    },
+    {
+      "nombre": "Solaria",
+      "ticker": "SLR.MC",
+      "precio": 13.77,
+      "compra": 45,
+      "venta": 35,
+      "señales_compra": [
+        "RSI bajo",
+        "en soporte Bollinger",
+        "PER atractivo (7.7)",
+        "margen 47.3%"
+      ],
+      "señales_venta": [
+        "tendencia bajista",
+        "MACD negativo"
+      ],
+      "noticias": [],
+      "rsi": 37.6,
+      "ma20": 15.43,
+      "ma50": 15.81,
+      "horizonte": [
+        "medio"
+      ],
+      "rec_plazo": "medio plazo",
+      "sector": "energía",
+      "tendencia_alcista": "False",
+      "sobre_ma200": "False"
+    },
+    {
+      "nombre": "Almirall",
+      "ticker": "ALM.MC",
+      "precio": 10.26,
+      "compra": 45,
+      "venta": 15,
+      "señales_compra": [
+        "tendencia alcista",
+        "RSI bajo",
+        "ingresos creciendo",
+        "deuda controlada"
+      ],
+      "señales_venta": [
+        "MACD negativo"
+      ],
+      "noticias": [],
+      "rsi": 38.7,
+      "ma20": 10.64,
+      "ma50": 10.44,
+      "horizonte": [
+        "medio"
+      ],
+      "rec_plazo": "medio plazo",
+      "sector": "otros",
+      "tendencia_alcista": "True",
+      "sobre_ma200": "False"
+    },
+    {
+      "nombre": "Continental",
+      "ticker": "CON.DE",
+      "precio": 69.54,
+      "compra": 45,
+      "venta": 10,
+      "señales_compra": [
+        "tendencia alcista",
+        "sobre media 200",
+        "volumen alto",
+        "PER atractivo (17.8)"
+      ],
+      "señales_venta": [
+        "MACD negativo"
+      ],
+      "noticias": [],
+      "rsi": 55.5,
+      "ma20": 70.37,
+      "ma50": 69.52,
+      "horizonte": [
+        "largo"
+      ],
+      "rec_plazo": "largo plazo",
+      "sector": "otros",
+      "tendencia_alcista": "True",
+      "sobre_ma200": "True"
+    },
+    {
+      "nombre": "Brenntag",
+      "ticker": "BNR.DE",
+      "precio": 55.86,
+      "compra": 45,
+      "venta": 35,
+      "señales_compra": [
+        "RSI sobrevendido",
+        "en soporte Bollinger",
+        "ingresos creciendo"
+      ],
+      "señales_venta": [
+        "tendencia bajista",
+        "MACD negativo"
+      ],
+      "noticias": [],
+      "rsi": 21.9,
+      "ma20": 60.76,
+      "ma50": 61.0,
+      "horizonte": [
+        "corto"
+      ],
+      "rec_plazo": "corto plazo",
+      "sector": "otros",
+      "tendencia_alcista": "False",
+      "sobre_ma200": "False"
+    },
+    {
+      "nombre": "BNP Paribas",
+      "ticker": "BNP.PA",
+      "precio": 89.55,
+      "compra": 45,
+      "venta": 25,
+      "señales_compra": [
+        "MACD positivo",
+        "PER atractivo (8.1)",
+        "margen 26.6%",
+        "ingresos creciendo"
+      ],
+      "señales_venta": [
+        "tendencia bajista"
+      ],
+      "noticias": [],
+      "rsi": 58.3,
+      "ma20": 91.14,
+      "ma50": 92.32,
+      "horizonte": [
+        "medio"
+      ],
+      "rec_plazo": "medio plazo",
+      "sector": "banca",
+      "tendencia_alcista": "False",
+      "sobre_ma200": "False"
+    },
+    {
+      "nombre": "Airbus",
+      "ticker": "AIR.PA",
+      "precio": 189.96,
+      "compra": 45,
+      "venta": 10,
+      "señales_compra": [
+        "tendencia alcista",
+        "RSI bajo",
+        "en soporte Bollinger",
+        "sobre media 200"
+      ],
+      "señales_venta": [
+        "MACD negativo"
+      ],
+      "noticias": [],
+      "rsi": 43.8,
+      "ma20": 199.13,
+      "ma50": 195.0,
+      "horizonte": [
+        "medio"
+      ],
+      "rec_plazo": "medio plazo",
+      "sector": "industria",
+      "tendencia_alcista": "True",
+      "sobre_ma200": "True"
+    },
+    {
+      "nombre": "Ferrari",
+      "ticker": "RACE.MI",
+      "precio": 363.1,
+      "compra": 45,
+      "venta": 10,
+      "señales_compra": [
+        "tendencia alcista",
+        "sobre media 200",
+        "margen 22.5%",
+        "ingresos creciendo"
+      ],
+      "señales_venta": [
+        "MACD negativo"
+      ],
+      "noticias": [],
+      "rsi": 52.7,
+      "ma20": 366.87,
+      "ma50": 357.99,
+      "horizonte": [
+        "largo"
+      ],
+      "rec_plazo": "largo plazo",
+      "sector": "lujo",
+      "tendencia_alcista": "True",
+      "sobre_ma200": "True"
+    },
+    {
+      "nombre": "ASML",
+      "ticker": "ASML.AS",
+      "precio": 1168.0,
+      "compra": 45,
+      "venta": 35,
+      "señales_compra": [
+        "RSI bajo",
+        "en soporte Bollinger",
+        "margen 34.1%",
+        "ingresos creciendo",
+        "deuda controlada"
+      ],
+      "señales_venta": [
+        "tendencia bajista",
+        "MACD negativo"
+      ],
+      "noticias": [],
+      "rsi": 31.5,
+      "ma20": 1352.8,
+      "ma50": 1449.99,
+      "horizonte": [
+        "corto"
+      ],
+      "rec_plazo": "corto plazo",
+      "sector": "tecnología",
+      "tendencia_alcista": "False",
+      "sobre_ma200": "False"
+    },
+    {
+      "nombre": "Siemens",
+      "ticker": "SIE.DE",
+      "precio": 254.65,
+      "compra": 40,
+      "venta": 35,
+      "señales_compra": [
+        "RSI bajo",
+        "en soporte Bollinger",
+        "margen 10.2%",
+        "ingresos creciendo"
+      ],
+      "señales_venta": [
+        "tendencia bajista",
+        "MACD negativo"
+      ],
+      "noticias": [],
+      "rsi": 38.0,
+      "ma20": 270.01,
+      "ma50": 270.08,
+      "horizonte": [
+        "medio"
+      ],
+      "rec_plazo": "medio plazo",
+      "sector": "industria",
+      "tendencia_alcista": "False",
+      "sobre_ma200": "False"
+    },
+    {
+      "nombre": "Deutsche Telekom",
+      "ticker": "DTE.DE",
+      "precio": 26.34,
+      "compra": 40,
+      "venta": 25,
+      "señales_compra": [
+        "MACD positivo",
+        "PER atractivo (14.0)",
+        "ingresos creciendo"
+      ],
+      "señales_venta": [
+        "tendencia bajista"
+      ],
+      "noticias": [],
+      "rsi": 55.1,
+      "ma20": 26.09,
+      "ma50": 26.35,
+      "horizonte": [
+        "medio"
+      ],
+      "rec_plazo": "medio plazo",
+      "sector": "otros",
+      "tendencia_alcista": "False",
+      "sobre_ma200": "False"
+    },
+    {
+      "nombre": "Sanofi",
+      "ticker": "SAN.PA",
+      "precio": 84.92,
+      "compra": 40,
+      "venta": 20,
+      "señales_compra": [
+        "tendencia alcista",
+        "sobre media 200",
+        "ingresos creciendo",
+        "deuda controlada"
+      ],
+      "señales_venta": [
+        "MACD negativo",
+        "RSI elevado"
+      ],
+      "noticias": [],
+      "rsi": 63.7,
+      "ma20": 82.94,
+      "ma50": 76.77,
+      "horizonte": [
+        "largo"
+      ],
+      "rec_plazo": "largo plazo",
+      "sector": "otros",
+      "tendencia_alcista": "True",
+      "sobre_ma200": "True"
+    },
+    {
+      "nombre": "Schneider Electric",
+      "ticker": "SU.PA",
+      "precio": 226.55,
+      "compra": 40,
+      "venta": 35,
+      "señales_compra": [
+        "RSI bajo",
+        "en soporte Bollinger",
+        "margen 11.3%",
+        "ingresos creciendo"
+      ],
+      "señales_venta": [
+        "tendencia bajista",
+        "MACD negativo"
+      ],
+      "noticias": [],
+      "rsi": 36.3,
+      "ma20": 237.82,
+      "ma50": 258.57,
+      "horizonte": [
+        "medio"
+      ],
+      "rec_plazo": "medio plazo",
+      "sector": "otros",
+      "tendencia_alcista": "False",
+      "sobre_ma200": "False"
+    },
+    {
+      "nombre": "Legrand",
+      "ticker": "LR.PA",
+      "precio": 127.4,
+      "compra": 40,
+      "venta": 35,
+      "señales_compra": [
+        "RSI bajo",
+        "en soporte Bollinger",
+        "margen 13.1%",
+        "ingresos creciendo"
+      ],
+      "señales_venta": [
+        "tendencia bajista",
+        "MACD negativo"
+      ],
+      "noticias": [],
+      "rsi": 41.9,
+      "ma20": 132.62,
+      "ma50": 134.86,
+      "horizonte": [
+        "medio"
+      ],
+      "rec_plazo": "medio plazo",
+      "sector": "otros",
+      "tendencia_alcista": "False",
+      "sobre_ma200": "False"
+    },
+    {
+      "nombre": "Intesa Sanpaolo",
+      "ticker": "ISP.MI",
+      "precio": 5.9,
+      "compra": 40,
+      "venta": 35,
+      "señales_compra": [
+        "en soporte Bollinger",
+        "PER atractivo (10.2)",
+        "margen 37.5%",
+        "ingresos creciendo"
+      ],
+      "señales_venta": [
+        "tendencia bajista",
+        "MACD negativo"
+      ],
+      "noticias": [],
+      "rsi": 47.8,
+      "ma20": 6.13,
+      "ma50": 6.29,
+      "horizonte": [
+        "medio"
+      ],
+      "rec_plazo": "medio plazo",
+      "sector": "banca",
+      "tendencia_alcista": "False",
+      "sobre_ma200": "False"
+    },
+    {
+      "nombre": "Jerónimo Martins",
+      "ticker": "JMT.LS",
+      "precio": 19.37,
+      "compra": 40,
+      "venta": 20,
+      "señales_compra": [
+        "tendencia alcista",
+        "sobre media 200",
+        "PER atractivo (19.0)"
+      ],
+      "señales_venta": [
+        "MACD negativo",
+        "RSI elevado"
+      ],
+      "noticias": [],
+      "rsi": 66.2,
+      "ma20": 19.05,
+      "ma50": 18.27,
+      "horizonte": [
+        "largo"
+      ],
+      "rec_plazo": "largo plazo",
+      "sector": "otros",
+      "tendencia_alcista": "True",
+      "sobre_ma200": "True"
+    },
+    {
+      "nombre": "BCP",
+      "ticker": "BCP.LS",
+      "precio": 1.05,
+      "compra": 40,
+      "venta": 30,
+      "señales_compra": [
+        "en soporte Bollinger",
+        "sobre media 200",
+        "PER atractivo (17.6)",
+        "margen 29.9%"
+      ],
+      "señales_venta": [
+        "tendencia bajista",
+        "MACD negativo"
+      ],
+      "noticias": [],
+      "rsi": 45.0,
+      "ma20": 1.1,
+      "ma50": 1.13,
+      "horizonte": [
+        "medio"
+      ],
+      "rec_plazo": "medio plazo",
+      "sector": "banca",
+      "tendencia_alcista": "False",
+      "sobre_ma200": "True"
+    },
+    {
+      "nombre": "ETF Ibex35",
+      "ticker": "BBVAI.MC",
+      "precio": 18.99,
+      "compra": 40,
+      "venta": 10,
+      "señales_compra": [
+        "tendencia alcista",
+        "sobre media 200",
+        "PER atractivo (17.4)"
+      ],
+      "señales_venta": [
+        "MACD negativo"
+      ],
+      "noticias": [],
+      "rsi": 49.0,
+      "ma20": 19.46,
+      "ma50": 19.4,
+      "horizonte": [
+        "largo"
+      ],
+      "rec_plazo": "largo plazo",
+      "sector": "otros",
+      "tendencia_alcista": "True",
+      "sobre_ma200": "True"
+    },
+    {
+      "nombre": "BBVA",
+      "ticker": "BBVA.MC",
+      "precio": 21.83,
+      "compra": 35,
+      "venta": 30,
+      "señales_compra": [
+        "sobre media 200",
+        "PER atractivo (11.1)",
+        "margen 32.6%",
+        "ingresos creciendo"
+      ],
+      "señales_venta": [
+        "tendencia bajista",
+        "MACD negativo"
+      ],
+      "noticias": [],
+      "rsi": 52.8,
+      "ma20": 22.67,
+      "ma50": 23.29,
+      "horizonte": [
+        "medio"
+      ],
+      "rec_plazo": "medio plazo",
+      "sector": "banca",
+      "tendencia_alcista": "False",
+      "sobre_ma200": "True"
+    },
+    {
+      "nombre": "Acciona",
+      "ticker": "ANA.MC",
+      "precio": 184.7,
+      "compra": 35,
+      "venta": 35,
+      "señales_compra": [
+        "RSI sobrevendido",
+        "en soporte Bollinger"
+      ],
+      "señales_venta": [
+        "tendencia bajista",
+        "MACD negativo"
+      ],
+      "noticias": [],
+      "rsi": 29.7,
+      "ma20": 208.35,
+      "ma50": 209.57,
+      "horizonte": [
+        "corto"
+      ],
+      "rec_plazo": "corto plazo",
+      "sector": "industria",
+      "tendencia_alcista": "False",
+      "sobre_ma200": "False"
+    },
+    {
+      "nombre": "Unicaja",
+      "ticker": "UNI.MC",
+      "precio": 3.23,
+      "compra": 35,
+      "venta": 30,
+      "señales_compra": [
+        "sobre media 200",
+        "PER atractivo (12.4)",
+        "margen 32.8%",
+        "ingresos creciendo"
+      ],
+      "señales_venta": [
+        "tendencia bajista",
+        "MACD negativo"
+      ],
+      "noticias": [],
+      "rsi": 49.4,
+      "ma20": 3.32,
+      "ma50": 3.36,
+      "horizonte": [
+        "medio"
+      ],
+      "rec_plazo": "medio plazo",
+      "sector": "banca",
+      "tendencia_alcista": "False",
+      "sobre_ma200": "True"
+    },
+    {
+      "nombre": "Volkswagen",
+      "ticker": "VOW3.DE",
+      "precio": 62.62,
+      "compra": 35,
+      "venta": 35,
+      "señales_compra": [
+        "RSI sobrevendido",
+        "en soporte Bollinger"
+      ],
+      "señales_venta": [
+        "tendencia bajista",
+        "MACD negativo"
+      ],
+      "noticias": [],
+      "rsi": 27.1,
+      "ma20": 68.4,
+      "ma50": 70.17,
+      "horizonte": [
+        "corto"
+      ],
+      "rec_plazo": "corto plazo",
+      "sector": "otros",
+      "tendencia_alcista": "False",
+      "sobre_ma200": "False"
+    },
+    {
+      "nombre": "Mercedes-Benz",
+      "ticker": "MBG.DE",
+      "precio": 37.62,
+      "compra": 35,
+      "venta": 35,
+      "señales_compra": [
+        "RSI bajo",
+        "en soporte Bollinger",
+        "PER atractivo (6.5)"
+      ],
+      "señales_venta": [
+        "tendencia bajista",
+        "MACD negativo"
+      ],
+      "noticias": [],
+      "rsi": 30.8,
+      "ma20": 40.59,
+      "ma50": 41.18,
+      "horizonte": [
+        "corto"
+      ],
+      "rec_plazo": "corto plazo",
+      "sector": "otros",
+      "tendencia_alcista": "False",
+      "sobre_ma200": "False"
+    },
+    {
+      "nombre": "Rheinmetall",
+      "ticker": "RHM.DE",
+      "precio": 693.4,
+      "compra": 35,
+      "venta": 35,
+      "señales_compra": [
+        "RSI sobrevendido",
+        "ingresos creciendo"
+      ],
+      "señales_venta": [
+        "tendencia bajista",
+        "MACD negativo"
+      ],
+      "noticias": [],
+      "rsi": 12.2,
+      "ma20": 877.21,
+      "ma50": 946.24,
+      "horizonte": [
+        "medio"
+      ],
+      "rec_plazo": "medio plazo",
+      "sector": "industria",
+      "tendencia_alcista": "False",
+      "sobre_ma200": "False"
+    },
+    {
+      "nombre": "Air Liquide",
+      "ticker": "AI.PA",
+      "precio": 187.58,
+      "compra": 35,
+      "venta": 20,
+      "señales_compra": [
+        "tendencia alcista",
+        "sobre media 200",
+        "margen 13.1%"
+      ],
+      "señales_venta": [
+        "MACD negativo",
+        "RSI elevado"
+      ],
+      "noticias": [],
+      "rsi": 63.3,
+      "ma20": 186.03,
+      "ma50": 175.94,
+      "horizonte": [
+        "medio"
+      ],
+      "rec_plazo": "medio plazo",
+      "sector": "otros",
+      "tendencia_alcista": "True",
+      "sobre_ma200": "True"
+    },
+    {
+      "nombre": "Saint-Gobain",
+      "ticker": "SGO.PA",
+      "precio": 71.22,
+      "compra": 35,
+      "venta": 15,
+      "señales_compra": [
+        "tendencia alcista",
+        "PER atractivo (13.5)"
+      ],
+      "señales_venta": [
+        "MACD negativo"
+      ],
+      "noticias": [],
+      "rsi": 53.2,
+      "ma20": 72.29,
+      "ma50": 69.57,
+      "horizonte": [
+        "medio"
+      ],
+      "rec_plazo": "medio plazo",
+      "sector": "otros",
+      "tendencia_alcista": "True",
+      "sobre_ma200": "False"
+    },
+    {
+      "nombre": "Hermes",
+      "ticker": "RMS.PA",
+      "precio": 1225.5,
+      "compra": 35,
+      "venta": 35,
+      "señales_compra": [
+        "RSI bajo",
+        "en soporte Bollinger",
+        "margen 28.0%",
+        "deuda controlada"
+      ],
+      "señales_venta": [
+        "tendencia bajista",
+        "MACD negativo"
+      ],
+      "noticias": [],
+      "rsi": 32.8,
+      "ma20": 1313.68,
+      "ma50": 1321.88,
+      "horizonte": [
+        "corto"
+      ],
+      "rec_plazo": "corto plazo",
+      "sector": "lujo",
+      "tendencia_alcista": "False",
+      "sobre_ma200": "False"
+    },
+    {
+      "nombre": "Engie",
+      "ticker": "ENGI.PA",
+      "precio": 24.26,
+      "compra": 35,
+      "venta": 25,
+      "señales_compra": [
+        "tendencia alcista",
+        "PER atractivo (15.0)"
+      ],
+      "señales_venta": [
+        "MACD negativo",
+        "RSI elevado"
+      ],
+      "noticias": [],
+      "rsi": 61.7,
+      "ma20": 24.19,
+      "ma50": 23.61,
+      "horizonte": [
+        "medio"
+      ],
+      "rec_plazo": "medio plazo",
+      "sector": "energía",
+      "tendencia_alcista": "True",
+      "sobre_ma200": "False"
+    },
+    {
+      "nombre": "Vinci",
+      "ticker": "DG.PA",
+      "precio": 111.0,
+      "compra": 35,
+      "venta": 15,
+      "señales_compra": [
+        "tendencia alcista",
+        "PER atractivo (12.4)"
+      ],
+      "señales_venta": [
+        "MACD negativo"
+      ],
+      "noticias": [],
+      "rsi": 52.3,
+      "ma20": 111.86,
+      "ma50": 109.46,
+      "horizonte": [
+        "medio"
+      ],
+      "rec_plazo": "medio plazo",
+      "sector": "industria",
+      "tendencia_alcista": "True",
+      "sobre_ma200": "False"
+    },
+    {
+      "nombre": "Bouygues",
+      "ticker": "EN.PA",
+      "precio": 42.5,
+      "compra": 35,
+      "venta": 5,
+      "señales_compra": [
+        "tendencia alcista",
+        "MACD positivo"
+      ],
+      "señales_venta": [],
+      "noticias": [],
+      "rsi": 59.1,
+      "ma20": 42.51,
+      "ma50": 42.11,
+      "horizonte": [
+        "medio"
+      ],
+      "rec_plazo": "medio plazo",
+      "sector": "otros",
+      "tendencia_alcista": "True",
+      "sobre_ma200": "False"
+    },
+    {
+      "nombre": "Mediobanca",
+      "ticker": "MB.MI",
+      "precio": 25.8,
+      "compra": 35,
+      "venta": 30,
+      "señales_compra": [
+        "sobre media 200",
+        "PER atractivo (16.0)",
+        "margen 41.8%",
+        "ingresos creciendo"
+      ],
+      "señales_venta": [
+        "tendencia bajista",
+        "MACD negativo"
+      ],
+      "noticias": [],
+      "rsi": 52.1,
+      "ma20": 26.35,
+      "ma50": 26.72,
+      "horizonte": [
+        "medio"
+      ],
+      "rec_plazo": "medio plazo",
+      "sector": "banca",
+      "tendencia_alcista": "False",
+      "sobre_ma200": "True"
+    },
+    {
+      "nombre": "ASM International",
+      "ticker": "ASM.AS",
+      "precio": 639.6,
+      "compra": 35,
+      "venta": 35,
+      "señales_compra": [
+        "RSI bajo",
+        "margen 26.8%",
+        "ingresos creciendo",
+        "deuda controlada"
+      ],
+      "señales_venta": [
+        "tendencia bajista",
+        "MACD negativo"
+      ],
+      "noticias": [],
+      "rsi": 38.4,
+      "ma20": 698.69,
+      "ma50": 776.47,
+      "horizonte": [
+        "medio"
+      ],
+      "rec_plazo": "medio plazo",
+      "sector": "tecnología",
+      "tendencia_alcista": "False",
+      "sobre_ma200": "False"
+    },
+    {
+      "nombre": "Santander",
+      "ticker": "SAN.MC",
+      "precio": 10.32,
+      "compra": 30,
+      "venta": 35,
+      "señales_compra": [
+        "PER atractivo (11.3)",
+        "margen 32.6%",
+        "ingresos creciendo"
+      ],
+      "señales_venta": [
+        "tendencia bajista",
+        "MACD negativo"
+      ],
+      "noticias": [],
+      "rsi": 48.7,
+      "ma20": 10.76,
+      "ma50": 11.57,
+      "horizonte": [
+        "medio"
+      ],
+      "rec_plazo": "medio plazo",
+      "sector": "banca",
+      "tendencia_alcista": "False",
+      "sobre_ma200": "False"
+    },
+    {
+      "nombre": "CaixaBank",
+      "ticker": "CABK.MC",
+      "precio": 11.45,
+      "compra": 30,
+      "venta": 35,
+      "señales_compra": [
+        "PER atractivo (12.1)",
+        "margen 40.6%",
+        "ingresos creciendo"
+      ],
+      "señales_venta": [
+        "tendencia bajista",
+        "MACD negativo"
+      ],
+      "noticias": [],
+      "rsi": 53.1,
+      "ma20": 11.73,
+      "ma50": 11.98,
+      "horizonte": [
+        "medio"
+      ],
+      "rec_plazo": "medio plazo",
+      "sector": "banca",
+      "tendencia_alcista": "False",
+      "sobre_ma200": "False"
+    },
+    {
+      "nombre": "Ferrovial",
+      "ticker": "FER.MC",
+      "precio": 52.8,
+      "compra": 30,
+      "venta": 25,
+      "señales_compra": [
+        "tendencia alcista",
+        "ingresos creciendo"
+      ],
+      "señales_venta": [
+        "MACD negativo",
+        "RSI elevado"
+      ],
+      "noticias": [],
+      "rsi": 61.1,
+      "ma20": 52.31,
+      "ma50": 48.24,
+      "horizonte": [
+        "medio"
+      ],
+      "rec_plazo": "medio plazo",
+      "sector": "industria",
+      "tendencia_alcista": "True",
+      "sobre_ma200": "False"
+    },
+    {
+      "nombre": "Mapfre",
+      "ticker": "MAP.MC",
+      "precio": 4.09,
+      "compra": 30,
+      "venta": 35,
+      "señales_compra": [
+        "PER atractivo (10.8)",
+        "ingresos creciendo",
+        "deuda controlada"
+      ],
+      "señales_venta": [
+        "tendencia bajista",
+        "MACD negativo"
+      ],
+      "noticias": [],
+      "rsi": 49.2,
+      "ma20": 4.18,
+      "ma50": 4.27,
+      "horizonte": [
+        "medio"
+      ],
+      "rec_plazo": "medio plazo",
+      "sector": "otros",
+      "tendencia_alcista": "False",
+      "sobre_ma200": "False"
+    },
+    {
+      "nombre": "Acerinox",
+      "ticker": "ACX.MC",
+      "precio": 14.55,
+      "compra": 30,
+      "venta": 35,
+      "señales_compra": [
+        "RSI bajo",
+        "en soporte Bollinger",
+        "ingresos creciendo"
+      ],
+      "señales_venta": [
+        "tendencia bajista",
+        "MACD negativo"
+      ],
+      "noticias": [],
+      "rsi": 33.9,
+      "ma20": 15.81,
+      "ma50": 16.58,
+      "horizonte": [
+        "corto"
+      ],
+      "rec_plazo": "corto plazo",
+      "sector": "otros",
+      "tendencia_alcista": "False",
+      "sobre_ma200": "False"
+    },
+    {
+      "nombre": "Societe Generale",
+      "ticker": "GLE.PA",
+      "precio": 61.74,
+      "compra": 30,
+      "venta": 35,
+      "señales_compra": [
+        "PER atractivo (7.9)",
+        "margen 25.6%",
+        "ingresos creciendo"
+      ],
+      "señales_venta": [
+        "tendencia bajista",
+        "MACD negativo"
+      ],
+      "noticias": [],
+      "rsi": 51.0,
+      "ma20": 64.07,
+      "ma50": 65.84,
+      "horizonte": [
+        "medio"
+      ],
+      "rec_plazo": "medio plazo",
+      "sector": "banca",
+      "tendencia_alcista": "False",
+      "sobre_ma200": "False"
+    },
+    {
+      "nombre": "Enel",
+      "ticker": "ENEL.MI",
+      "precio": 9.42,
+      "compra": 30,
+      "venta": 15,
+      "señales_compra": [
+        "tendencia alcista",
+        "ingresos creciendo"
+      ],
+      "señales_venta": [
+        "MACD negativo"
+      ],
+      "noticias": [],
+      "rsi": 52.9,
+      "ma20": 9.58,
+      "ma50": 9.18,
+      "horizonte": [
+        "medio"
+      ],
+      "rec_plazo": "medio plazo",
+      "sector": "energía",
+      "tendencia_alcista": "True",
+      "sobre_ma200": "False"
+    },
+    {
+      "nombre": "ArcelorMittal",
+      "ticker": "MTS.MC",
+      "precio": 51.64,
+      "compra": 25,
+      "venta": 35,
+      "señales_compra": [
+        "RSI bajo",
+        "en soporte Bollinger",
+        "ingresos creciendo",
+        "deuda controlada"
+      ],
+      "señales_venta": [
+        "tendencia bajista",
+        "MACD negativo"
+      ],
+      "noticias": [],
+      "rsi": 37.6,
+      "ma20": 55.24,
+      "ma50": 57.4,
+      "horizonte": [
+        "corto"
+      ],
+      "rec_plazo": "corto plazo",
+      "sector": "otros",
+      "tendencia_alcista": "False",
+      "sobre_ma200": "False"
+    },
+    {
+      "nombre": "Bayer",
+      "ticker": "BAYN.DE",
+      "precio": 53.36,
+      "compra": 25,
+      "venta": 20,
+      "señales_compra": [
+        "tendencia alcista",
+        "sobre media 200"
+      ],
+      "señales_venta": [
+        "MACD negativo",
+        "RSI elevado"
+      ],
+      "noticias": [],
+      "rsi": 62.8,
+      "ma20": 53.24,
+      "ma50": 49.09,
+      "horizonte": [
+        "medio"
+      ],
+      "rec_plazo": "medio plazo",
+      "sector": "otros",
+      "tendencia_alcista": "True",
+      "sobre_ma200": "True"
+    },
+    {
+      "nombre": "Infineon",
+      "ticker": "IFX.DE",
+      "precio": 45.44,
+      "compra": 25,
+      "venta": 35,
+      "señales_compra": [
+        "RSI bajo",
+        "en soporte Bollinger",
+        "ingresos creciendo",
+        "deuda controlada"
+      ],
+      "señales_venta": [
+        "tendencia bajista",
+        "MACD negativo"
+      ],
+      "noticias": [],
+      "rsi": 34.7,
+      "ma20": 50.04,
+      "ma50": 54.01,
+      "horizonte": [
+        "corto"
+      ],
+      "rec_plazo": "corto plazo",
+      "sector": "tecnología",
+      "tendencia_alcista": "False",
+      "sobre_ma200": "False"
+    },
+    {
+      "nombre": "Zalando",
+      "ticker": "ZAL.DE",
+      "precio": 28.24,
+      "compra": 25,
+      "venta": 10,
+      "señales_compra": [
+        "tendencia alcista",
+        "sobre media 200",
+        "ingresos creciendo"
+      ],
+      "señales_venta": [
+        "MACD negativo"
+      ],
+      "noticias": [],
+      "rsi": 56.0,
+      "ma20": 27.58,
+      "ma50": 24.97,
+      "horizonte": [
+        "medio"
+      ],
+      "rec_plazo": "medio plazo",
+      "sector": "otros",
+      "tendencia_alcista": "True",
+      "sobre_ma200": "True"
+    },
+    {
+      "nombre": "Vonovia",
+      "ticker": "VNA.DE",
+      "precio": 16.89,
+      "compra": 25,
+      "venta": 35,
+      "señales_compra": [
+        "PER atractivo (9.4)",
+        "margen 29.5%"
+      ],
+      "señales_venta": [
+        "tendencia bajista",
+        "MACD negativo"
+      ],
+      "noticias": [],
+      "rsi": 60.0,
+      "ma20": 16.73,
+      "ma50": 16.9,
+      "horizonte": [
+        "medio"
+      ],
+      "rec_plazo": "medio plazo",
+      "sector": "otros",
+      "tendencia_alcista": "False",
+      "sobre_ma200": "False"
+    },
+    {
+      "nombre": "Danone",
+      "ticker": "BN.PA",
+      "precio": 68.28,
+      "compra": 25,
+      "venta": 10,
+      "señales_compra": [
+        "tendencia alcista",
+        "sobre media 200"
+      ],
+      "señales_venta": [
+        "MACD negativo"
+      ],
+      "noticias": [],
+      "rsi": 59.7,
+      "ma20": 67.03,
+      "ma50": 62.87,
+      "horizonte": [
+        "medio"
+      ],
+      "rec_plazo": "medio plazo",
+      "sector": "otros",
+      "tendencia_alcista": "True",
+      "sobre_ma200": "True"
+    },
+    {
+      "nombre": "Credit Agricole",
+      "ticker": "ACA.PA",
+      "precio": 15.31,
+      "compra": 25,
+      "venta": 45,
+      "señales_compra": [
+        "PER atractivo (7.4)",
+        "margen 26.0%"
+      ],
+      "señales_venta": [
+        "tendencia bajista",
+        "MACD negativo",
+        "RSI elevado"
+      ],
+      "noticias": [],
+      "rsi": 61.0,
+      "ma20": 15.5,
+      "ma50": 16.1,
+      "horizonte": [
+        "medio"
+      ],
+      "rec_plazo": "medio plazo",
+      "sector": "banca",
+      "tendencia_alcista": "False",
+      "sobre_ma200": "False"
+    },
+    {
+      "nombre": "Stellantis",
+      "ticker": "STLAM.MI",
+      "precio": 3.13,
+      "compra": 25,
+      "venta": 35,
+      "señales_compra": [
+        "RSI sobrevendido"
+      ],
+      "señales_venta": [
+        "tendencia bajista",
+        "MACD negativo"
+      ],
+      "noticias": [],
+      "rsi": 9.6,
+      "ma20": 3.77,
+      "ma50": 3.92,
+      "horizonte": [
+        "medio"
+      ],
+      "rec_plazo": "medio plazo",
+      "sector": "otros",
+      "tendencia_alcista": "False",
+      "sobre_ma200": "False"
+    },
+    {
+      "nombre": "Philips",
+      "ticker": "PHIA.AS",
+      "precio": 26.39,
+      "compra": 25,
+      "venta": 20,
+      "señales_compra": [
+        "tendencia alcista",
+        "sobre media 200"
+      ],
+      "señales_venta": [
+        "MACD negativo",
+        "RSI elevado"
+      ],
+      "noticias": [],
+      "rsi": 68.4,
+      "ma20": 26.21,
+      "ma50": 23.73,
+      "horizonte": [
+        "medio"
+      ],
+      "rec_plazo": "medio plazo",
+      "sector": "otros",
+      "tendencia_alcista": "True",
+      "sobre_ma200": "True"
+    },
+    {
+      "nombre": "Heineken",
+      "ticker": "HEIA.AS",
+      "precio": 82.48,
+      "compra": 25,
+      "venta": 10,
+      "señales_compra": [
+        "tendencia alcista",
+        "sobre media 200"
+      ],
+      "señales_venta": [
+        "MACD negativo"
+      ],
+      "noticias": [],
+      "rsi": 54.7,
+      "ma20": 82.05,
+      "ma50": 76.2,
+      "horizonte": [
+        "medio"
+      ],
+      "rec_plazo": "medio plazo",
+      "sector": "otros",
+      "tendencia_alcista": "True",
+      "sobre_ma200": "True"
+    },
+    {
+      "nombre": "Aegon",
+      "ticker": "AGN.AS",
+      "precio": 7.52,
+      "compra": 25,
+      "venta": 30,
+      "señales_compra": [
+        "sobre media 200",
+        "PER atractivo (12.7)",
+        "deuda controlada"
+      ],
+      "señales_venta": [
+        "tendencia bajista",
+        "MACD negativo"
+      ],
+      "noticias": [],
+      "rsi": 55.4,
+      "ma20": 7.61,
+      "ma50": 7.63,
+      "horizonte": [
+        "medio"
+      ],
+      "rec_plazo": "medio plazo",
+      "sector": "otros",
+      "tendencia_alcista": "False",
+      "sobre_ma200": "True"
+    },
+    {
+      "nombre": "Michelin",
+      "ticker": "ML.PA",
+      "precio": 31.21,
+      "compra": 20,
+      "venta": 35,
+      "señales_compra": [
+        "RSI bajo",
+        "en soporte Bollinger"
+      ],
+      "señales_venta": [
+        "tendencia bajista",
+        "MACD negativo"
+      ],
+      "noticias": [],
+      "rsi": 34.4,
+      "ma20": 32.67,
+      "ma50": 33.02,
+      "horizonte": [
+        "corto"
+      ],
+      "rec_plazo": "corto plazo",
+      "sector": "otros",
+      "tendencia_alcista": "False",
+      "sobre_ma200": "False"
+    },
+    {
+      "nombre": "Kering",
+      "ticker": "KER.PA",
+      "precio": 172.32,
+      "compra": 20,
+      "venta": 35,
+      "señales_compra": [
+        "RSI bajo",
+        "en soporte Bollinger"
+      ],
+      "señales_venta": [
+        "tendencia bajista",
+        "MACD negativo"
+      ],
+      "noticias": [],
+      "rsi": 40.7,
+      "ma20": 182.67,
+      "ma50": 204.74,
+      "horizonte": [
+        "medio"
+      ],
+      "rec_plazo": "medio plazo",
+      "sector": "lujo",
+      "tendencia_alcista": "False",
+      "sobre_ma200": "False"
+    },
+    {
+      "nombre": "Prysmian",
+      "ticker": "PRY.MI",
+      "precio": 100.5,
+      "compra": 20,
+      "venta": 35,
+      "señales_compra": [
+        "RSI bajo",
+        "en soporte Bollinger"
+      ],
+      "señales_venta": [
+        "tendencia bajista",
+        "MACD negativo"
+      ],
+      "noticias": [],
+      "rsi": 36.2,
+      "ma20": 107.25,
+      "ma50": 114.46,
+      "horizonte": [
+        "medio"
+      ],
+      "rec_plazo": "medio plazo",
+      "sector": "industria",
+      "tendencia_alcista": "False",
+      "sobre_ma200": "False"
+    },
+    {
+      "nombre": "ETF Energía limpia",
+      "ticker": "IQQH.DE",
+      "precio": 7.35,
+      "compra": 20,
+      "venta": 35,
+      "señales_compra": [
+        "RSI bajo",
+        "en soporte Bollinger"
+      ],
+      "señales_venta": [
+        "tendencia bajista",
+        "MACD negativo"
+      ],
+      "noticias": [],
+      "rsi": 32.2,
+      "ma20": 8.08,
+      "ma50": 8.41,
+      "horizonte": [
+        "corto"
+      ],
+      "rec_plazo": "corto plazo",
+      "sector": "otros",
+      "tendencia_alcista": "False",
+      "sobre_ma200": "False"
+    },
+    {
+      "nombre": "ETF Semiconductores",
+      "ticker": "SEMI.AS",
+      "precio": 14.17,
+      "compra": 20,
+      "venta": 35,
+      "señales_compra": [
+        "RSI bajo",
+        "en soporte Bollinger"
+      ],
+      "señales_venta": [
+        "tendencia bajista",
+        "MACD negativo"
+      ],
+      "noticias": [],
+      "rsi": 30.1,
+      "ma20": 16.98,
+      "ma50": 18.99,
+      "horizonte": [
+        "corto"
+      ],
+      "rec_plazo": "corto plazo",
+      "sector": "otros",
+      "tendencia_alcista": "False",
+      "sobre_ma200": "False"
+    },
+    {
+      "nombre": "RWE",
+      "ticker": "RWE.DE",
+      "precio": 55.7,
+      "compra": 10,
+      "venta": 35,
+      "señales_compra": [
+        "en soporte Bollinger",
+        "ingresos creciendo"
+      ],
+      "señales_venta": [
+        "tendencia bajista",
+        "MACD negativo"
+      ],
+      "noticias": [],
+      "rsi": 45.1,
+      "ma20": 57.82,
+      "ma50": 58.32,
+      "horizonte": [
+        "medio"
+      ],
+      "rec_plazo": "medio plazo",
+      "sector": "energía",
+      "tendencia_alcista": "False",
+      "sobre_ma200": "False"
+    },
+    {
+      "nombre": "Telefónica",
+      "ticker": "TEF.MC",
+      "precio": 3.36,
+      "compra": 0,
+      "venta": 35,
+      "señales_compra": [],
+      "señales_venta": [
+        "tendencia bajista",
+        "MACD negativo"
+      ],
+      "noticias": [],
+      "rsi": 48.4,
+      "ma20": 3.39,
+      "ma50": 3.41,
+      "horizonte": [
+        "medio"
+      ],
+      "rec_plazo": "medio plazo",
+      "sector": "otros",
+      "tendencia_alcista": "False",
+      "sobre_ma200": "False"
+    }
+  ]
+}
