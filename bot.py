@@ -177,6 +177,7 @@ def guardar_resultados(data):
     url=f"https://api.github.com/repos/{GH_REPO}/contents/resultados.json"
     headers={"Authorization":f"token {GH_TOKEN}","Accept":"application/vnd.github.v3+json"}
     import base64
+    data = json.loads(json.dumps(data, default=str))
     contenido=base64.b64encode(json.dumps(data,ensure_ascii=False,indent=2).encode()).decode()
     r=requests.get(url,headers=headers)
     sha=r.json().get("sha") if r.status_code==200 else None
