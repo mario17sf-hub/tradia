@@ -3,7 +3,7 @@ name: Tradia Bot
 on:
   workflow_dispatch:
   schedule:
-    - cron: '*/20 7-21 * * 1-5'
+    - cron: '*/30 7-21 * * 1-5'
 
 jobs:
   run-bot:
