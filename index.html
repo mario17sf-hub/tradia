@@ -34,6 +34,8 @@ main{padding:6px 14px 20px;max-width:640px;margin:0 auto}
 .bar i{display:block;height:100%;border-radius:4px}
 .tags{display:flex;gap:6px;flex-wrap:wrap}
 .tag{font-size:11px;background:var(--card2);color:var(--mut);padding:3px 8px;border-radius:10px}
+.tag.ok{color:#9ff0cf}.tag.w{color:#fcd9a0}
+.sug{font-size:12px;color:var(--txt);margin-top:8px}
 .empty{color:var(--mut);text-align:center;padding:40px 10px}
 .nav{position:fixed;left:0;right:0;bottom:0;display:flex;background:rgba(11,18,32,.96);border-top:1px solid var(--line);padding:6px 6px calc(6px + env(safe-area-inset-bottom));backdrop-filter:blur(10px)}
 .nav button{flex:1;background:none;border:0;color:var(--mut);font-size:11px;padding:6px 0;display:flex;flex-direction:column;align-items:center;gap:2px}
@@ -54,8 +56,9 @@ main{padding:6px 14px 20px;max-width:640px;margin:0 auto}
 .btn.r{background:var(--r);color:#fff}
 .btn.s{background:var(--card2);color:var(--txt)}
 .btn.sm{width:auto;padding:9px 14px;font-size:13px;margin:8px 6px 0 0}
-.rec{background:#0f2a22;border:1px solid #14543f;border-radius:12px;padding:10px 12px;font-size:13px;line-height:1.45;margin:8px 0}
+.rec{background:#0f2a22;border:1px solid #14543f;border-radius:12px;padding:10px 12px;font-size:13px;line-height:1.5;margin:8px 0}
 .warn{background:#2c1416;border:1px solid #6b1d24;border-radius:12px;padding:10px 12px;font-size:13px;line-height:1.45;margin-top:10px;color:#ffd3d6}
+.amb{background:#2a2110;border:1px solid #6b5316;border-radius:12px;padding:10px 12px;font-size:13px;line-height:1.45;margin-top:10px;color:#fde7b0}
 .seg{display:flex;gap:8px;margin:8px 0}
 .seg label{flex:1;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px;text-align:center;font-size:14px}
 .seg input{margin-right:6px}
@@ -95,15 +98,17 @@ td{padding:8px 4px;border-bottom:1px solid var(--line)}
 
 <script>
 (function(){
-  var c=document.createElement('canvas');c.width=c.height=180;var g=c.getContext('2d');
-  var gr=g.createLinearGradient(0,0,180,180);gr.addColorStop(0,'#10b981');gr.addColorStop(1,'#0ea5e9');
-  g.fillStyle=gr;g.fillRect(0,0,180,180);g.strokeStyle='#fff';g.lineWidth=14;g.lineCap='round';g.lineJoin='round';
-  g.beginPath();g.moveTo(34,125);g.lineTo(72,87);g.lineTo(100,110);g.lineTo(146,58);g.stroke();
-  var l=document.createElement('link');l.rel='apple-touch-icon';l.href=c.toDataURL('image/png');document.head.appendChild(l);
+  try{
+    var c=document.createElement('canvas');c.width=c.height=180;var g=c.getContext('2d');
+    var gr=g.createLinearGradient(0,0,180,180);gr.addColorStop(0,'#10b981');gr.addColorStop(1,'#0ea5e9');
+    g.fillStyle=gr;g.fillRect(0,0,180,180);g.strokeStyle='#fff';g.lineWidth=14;g.lineCap='round';g.lineJoin='round';
+    g.beginPath();g.moveTo(34,125);g.lineTo(72,87);g.lineTo(100,110);g.lineTo(146,58);g.stroke();
+    var l=document.createElement('link');l.rel='apple-touch-icon';l.href=c.toDataURL('image/png');document.head.appendChild(l);
+  }catch(e){}
 })();
 
 var LS='tradia_ops_v1';
-var datos=null,cargaError='',ops=[],tab='rank',filtro='todos',busqueda='',actual=null;
+var datos=null,cargaError='',ops=[],tab='rank',filtro='mejores',busqueda='',actual=null;
 var chat=[{r:'bot',t:'Hola, soy Tradia. Escribe el nombre de un activo (por ejemplo "Santander" o "SAP") y te resumo lo que dicen los análisis. También puedes preguntar "¿qué comprar?" o "¿qué evitar?".\n\nPor ahora no puedo conversar libremente ni recibir fotos: eso requiere conectar un modelo de IA, que todavía no está montado.'}];
 
 function $(s){return document.querySelector(s)}
@@ -112,33 +117,69 @@ function eur(n){return new Intl.NumberFormat('es-ES',{style:'currency',currency:
 function pct(n){return Math.round(n)+'%'}
 function cargarOps(){try{ops=JSON.parse(localStorage.getItem(LS)||'[]')}catch(e){ops=[]}}
 function guardarOps(){try{localStorage.setItem(LS,JSON.stringify(ops))}catch(e){}}
-function toast(t){var el=$('#toast');el.textContent=t;el.classList.add('show');setTimeout(function(){el.classList.remove('show')},2400)}
-function buscar(t){return datos?datos.resultados.find(function(r){return r.ticker===t}):null}
+function toast(t){var el=$('#toast');el.textContent=t;el.classList.add('show');setTimeout(function(){el.classList.remove('show')},2600)}
+function buscar(t){if(!datos)return null;for(var i=0;i<datos.resultados.length;i++){if(datos.resultados[i].ticker===t)return datos.resultados[i]}return null}
+function copiar(s,msg){
+  if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(s).then(function(){toast(msg)},function(){prompt('Copia este texto:',s)})}
+  else prompt('Copia este texto:',s);
+}
+
+function pc(x){return x.corto!=null?x.corto:x.compra}
+function pl(x){return x.largo!=null?x.largo:x.compra}
+function recPlazo(x){
+  if(x.rec_plazo)return x.rec_plazo;
+  var c=pc(x),l=pl(x);
+  if(Math.max(c,l)<50)return 'sin señal clara';
+  if(c>=l+10)return 'corto plazo';
+  if(l>=c+10)return 'largo plazo';
+  return 'ambos plazos';
+}
+function recImporte(x){
+  if(x.rec_importe)return x.rec_importe;
+  var s=x.compra;
+  if(s>=85)return '250–400 €';
+  if(s>=70)return '100–250 €';
+  if(s>=55)return '50–100 €';
+  if(s>=40)return 'menos de 50 €';
+  return 'no recomendado';
+}
+function valorTab(x){return filtro==='corto'?pc(x):filtro==='largo'?pl(x):filtro==='evitar'?x.venta:x.compra}
+function etiquetaTab(){return filtro==='corto'?'Índice corto plazo ':filtro==='largo'?'Índice largo plazo ':filtro==='evitar'?'Índice de venta ':'Índice de confianza '}
 
 function lista(){
   var r=datos.resultados.slice();
   var q=busqueda.trim().toLowerCase();
   if(q)r=r.filter(function(x){return x.nombre.toLowerCase().indexOf(q)>-1||x.ticker.toLowerCase().indexOf(q)>-1});
-  if(filtro==='corto')r=r.filter(function(x){return x.horizonte.indexOf('corto')>-1}).sort(function(a,b){return b.compra-a.compra});
-  else if(filtro==='largo')r=r.filter(function(x){return x.horizonte.indexOf('largo')>-1}).sort(function(a,b){return b.compra-a.compra});
-  else if(filtro==='evitar')r=r.filter(function(x){return x.venta>=55}).sort(function(a,b){return b.venta-a.venta});
-  else r.sort(function(a,b){return b.compra-a.compra});
-  if(!q)r=r.slice(0,30);
-  return r;
+  else if(filtro==='evitar')r=r.filter(function(x){return x.venta>=45});
+  r.sort(function(a,b){return valorTab(b)-valorTab(a)});
+  return r.slice(0,q?50:30);
+}
+function tagPlazo(x){
+  var p=recPlazo(x);
+  if(p==='corto plazo')return '<span class="tag ok">⚡ Recomendado: corto plazo</span>';
+  if(p==='largo plazo')return '<span class="tag ok">📅 Recomendado: largo plazo</span>';
+  if(p==='ambos plazos')return '<span class="tag ok">⚡📅 Válido a corto y largo plazo</span>';
+  return '<span class="tag">Sin señal clara de plazo</span>';
 }
 function card(x){
-  var ev=filtro==='evitar',val=ev?x.venta:x.compra;
+  var ev=filtro==='evitar',val=valorTab(x);
   var col=ev?'var(--r)':(val>=70?'var(--g)':val>=50?'var(--y)':'var(--mut)');
-  var tags=x.horizonte.map(function(h){return h==='corto'?'<span class="tag">⚡ Corto plazo</span>':h==='largo'?'<span class="tag">📅 Largo plazo</span>':'<span class="tag">📊 Medio plazo</span>'}).join('');
-  return '<div class="card" data-act="abrir" data-t="'+esc(x.ticker)+'"><div class="row"><div><div class="nm">'+esc(x.nombre)+'</div><div class="sub">'+esc(x.ticker)+' · '+esc(x.sector)+'</div></div><div class="rt"><div class="pr">'+eur(x.precio)+'</div><div class="conf" style="color:'+col+'">'+(ev?'Índice de venta ':'Índice de confianza ')+pct(val)+'</div></div></div><div class="bar"><i style="width:'+Math.min(100,val)+'%;background:'+col+'"></i></div><div class="tags">'+tags+'</div></div>';
+  var tags='';
+  if(!ev)tags+=tagPlazo(x);
+  tags+='<span class="tag">'+esc(x.tipo||'acción')+'</span>';
+  if(x.liquidez_baja)tags+='<span class="tag w">⚠️ Poca liquidez</span>';
+  if(x.completo===false)tags+='<span class="tag">Solo análisis técnico</span>';
+  var sug=ev?'':'<div class="sug">💶 Importe sugerido: <b>'+esc(recImporte(x))+'</b></div>';
+  return '<div class="card" data-act="abrir" data-t="'+esc(x.ticker)+'"><div class="row"><div><div class="nm">'+esc(x.nombre)+'</div><div class="sub">'+esc(x.ticker)+(x.sector&&x.sector!=='otros'?' · '+esc(x.sector):'')+'</div></div><div class="rt"><div class="pr">'+eur(x.precio)+'</div><div class="conf" style="color:'+col+'">'+etiquetaTab()+pct(val)+'</div></div></div><div class="bar"><i style="width:'+Math.min(100,val)+'%;background:'+col+'"></i></div><div class="sub">⚡ corto '+pct(pc(x))+' · 📅 largo '+pct(pl(x))+'</div><div class="tags" style="margin-top:8px">'+tags+'</div>'+sug+'</div>';
 }
 function htmlLista(){var r=lista();return r.length?r.map(card).join(''):'<div class="empty">Sin resultados.</div>'}
-function foot(){return '<div class="foot">Herramienta de apoyo, no asesoramiento financiero. El índice de confianza mide cuántas señales coinciden; no es una probabilidad real de ganar dinero. Los precios son los de la última actualización del robot.</div>'}
+function foot(){return '<div class="foot">Herramienta de apoyo, no asesoramiento financiero. El índice mide cuántas señales coinciden; no es una probabilidad real de ganar dinero. Los importes sugeridos son orientativos. Los precios son los de la última actualización del robot.</div>'}
 
 function vistaRank(){
   if(!datos)return '<div class="empty">'+(cargaError||'Cargando análisis…')+'</div>';
-  var ch=[['todos','🏆 Mejores'],['corto','⚡ Corto plazo'],['largo','📅 Largo plazo'],['evitar','🚫 Evitar']].map(function(p){return '<button class="chip '+(filtro===p[0]?'on':'')+'" data-act="filtro" data-k="'+p[0]+'">'+p[1]+'</button>'}).join('');
-  return '<div class="hint">Actualizado: '+esc(datos.actualizado)+' · '+datos.total_analizados+' activos analizados</div><input id="q" class="search" placeholder="Buscar activo (Santander, SAP…)" value="'+esc(busqueda)+'"><div class="chips">'+ch+'</div><div id="lista">'+htmlLista()+'</div>'+foot();
+  var ch=[['mejores','🏆 Mejores'],['corto','⚡ Corto plazo'],['largo','📅 Largo plazo'],['evitar','🚫 Evitar']].map(function(p){return '<button class="chip '+(filtro===p[0]?'on':'')+'" data-act="filtro" data-k="'+p[0]+'">'+p[1]+'</button>'}).join('');
+  var tot=datos.universo_total||datos.total_analizados;
+  return '<div class="hint">Actualizado: '+esc(datos.actualizado)+' · '+datos.total_analizados+' de '+tot+' activos analizados</div><input id="q" class="search" placeholder="Buscar entre todos los activos…" value="'+esc(busqueda)+'"><div class="chips">'+ch+'</div><div id="lista">'+htmlLista()+'</div>'+foot();
 }
 
 function vistaOps(){
@@ -157,7 +198,8 @@ function vistaOps(){
     return '<tr><td>'+esc(o.nombre)+'<br><span class="sub">'+o.acciones.toFixed(3)+' acc.</span></td><td>'+eur(o.precioCompra)+'</td><td>'+eur(o.precioVenta)+'</td><td class="'+(res>=0?'up':'dn')+'">'+(res>=0?'+':'')+eur(res)+'</td></tr>';
   }).join('');
   var tabla=cer.length?'<div class="card"><table><tr><th>Activo</th><th>Compra</th><th>Venta</th><th>Resultado</th></tr>'+rows+'</table></div>':'<div class="empty">Aún no has cerrado ninguna operación.</div>';
-  return '<div class="sum"><div class="kpi"><small>Total ganado/perdido</small><b class="'+(real>=0?'up':'dn')+'">'+(real>=0?'+':'')+eur(real)+'</b></div><div class="kpi"><small>Latente (abiertas)</small><b class="'+(lat>=0?'up':'dn')+'">'+(lat>=0?'+':'')+eur(lat)+'</b></div></div><div class="hint">Invertido ahora: '+eur(inv)+'</div><h3 style="margin:14px 2px 8px;font-size:14px;color:var(--mut)">ACTIVAS</h3>'+ah+'<h3 style="margin:14px 2px 8px;font-size:14px;color:var(--mut)">HISTORIAL</h3>'+tabla+'<div><button class="btn s sm" data-act="export">Copia de seguridad</button><button class="btn s sm" data-act="import">Restaurar copia</button></div>'+foot();
+  var avisoCartera=act.length?'<div class="amb">Para que Tradia te avise de ventas por Telegram, el robot necesita saber qué tienes. Pulsa «Copiar cartera para Telegram» y pega ese texto en el archivo <b>cartera.json</b> del repositorio (crea el archivo la primera vez).</div>':'';
+  return '<div class="sum"><div class="kpi"><small>Total ganado/perdido</small><b class="'+(real>=0?'up':'dn')+'">'+(real>=0?'+':'')+eur(real)+'</b></div><div class="kpi"><small>Latente (abiertas)</small><b class="'+(lat>=0?'up':'dn')+'">'+(lat>=0?'+':'')+eur(lat)+'</b></div></div><div class="hint">Invertido ahora: '+eur(inv)+'</div><h3 style="margin:14px 2px 8px;font-size:14px;color:var(--mut)">ACTIVAS</h3>'+ah+avisoCartera+'<h3 style="margin:14px 2px 8px;font-size:14px;color:var(--mut)">HISTORIAL</h3>'+tabla+'<div><button class="btn s sm" data-act="cartera">Copiar cartera para Telegram</button><button class="btn s sm" data-act="export">Copia de seguridad</button><button class="btn s sm" data-act="import">Restaurar copia</button></div>'+foot();
 }
 
 function vistaChat(){
@@ -170,7 +212,7 @@ function responder(t){
   var enc=datos.resultados.filter(function(x){return q.indexOf(x.nombre.toLowerCase())>-1||q.indexOf(x.ticker.toLowerCase())>-1});
   if(enc.length){
     return enc.slice(0,2).map(function(x){
-      return x.nombre+' ('+eur(x.precio)+')\nÍndice de compra: '+pct(x.compra)+' · de venta: '+pct(x.venta)+'\nRSI: '+x.rsi+'\nA favor: '+((x.señales_compra||[]).slice(0,4).join(', ')||'ninguna señal destacada')+'\nEn contra: '+((x.señales_venta||[]).slice(0,4).join(', ')||'ninguna señal destacada')+'\nPlazo sugerido: '+x.rec_plazo+'.\nEs un resumen automático, no asesoramiento.';
+      return x.nombre+' ('+eur(x.precio)+')\nCorto plazo: '+pct(pc(x))+' · Largo plazo: '+pct(pl(x))+' · Venta: '+pct(x.venta)+'\nRecomendado: '+recPlazo(x)+' · Importe orientativo: '+recImporte(x)+'\nRSI: '+x.rsi+'\nA favor: '+((x.señales_compra||[]).slice(0,4).join(', ')||'ninguna señal destacada')+'\nEn contra: '+((x.señales_venta||[]).slice(0,4).join(', ')||'ninguna señal destacada')+'\nEs un resumen automático, no asesoramiento.';
     }).join('\n\n');
   }
   if(/evitar|vender|peor/.test(q)){
@@ -179,7 +221,7 @@ function responder(t){
   }
   if(/comprar|mejor|top|recomien/.test(q)){
     var c=datos.resultados.slice().sort(function(a,b){return b.compra-a.compra}).slice(0,5);
-    return 'Los 5 con más señales positivas ahora:\n'+c.map(function(x,i){return (i+1)+'. '+x.nombre+' — confianza '+pct(x.compra)+' ('+x.rec_plazo+')'}).join('\n');
+    return 'Los 5 con más señales positivas ahora:\n'+c.map(function(x,i){return (i+1)+'. '+x.nombre+' — confianza '+pct(x.compra)+' ('+recPlazo(x)+', '+recImporte(x)+')'}).join('\n');
   }
   return 'No he encontrado ese activo. Prueba con el nombre tal cual (por ejemplo "Iberdrola") o pregunta "¿qué comprar?" o "¿qué evitar?".';
 }
@@ -189,22 +231,29 @@ function render(){
   $('#view').innerHTML=tab==='rank'?vistaRank():tab==='ops'?vistaOps():vistaChat();
 }
 
-function rango(x){return x.compra>=80?'entre 100 € y 400 € (confianza alta)':'por debajo de 100 € (confianza media o baja: mejor una cantidad pequeña)'}
 function textoPlazo(x){
-  if(x.rec_plazo==='corto plazo')return 'Tradia recomienda <b>corto plazo</b>: hay señales de rebote (RSI bajo, precio en soporte). Pensado para entrar y salir en poco tiempo.';
-  if(x.rec_plazo==='largo plazo')return 'Tradia recomienda <b>largo plazo</b>: la tendencia y los fundamentales respaldan mantenerlo semanas o meses.'+(x.horizonte.indexOf('corto')>-1?' También hay señal de rebote a corto plazo.':'');
-  return 'No hay una señal clara de plazo. Con esta confianza conviene una cantidad pequeña y vigilar de cerca.';
+  var c=pc(x),l=pl(x),r=recPlazo(x);
+  var sc=(x.señales_compra||[]).slice(0,2).join(', ');
+  var s=sc?' Señales: '+esc(sc)+'.':'';
+  if(r==='corto plazo')return '<b>Recomendación de plazo: corto plazo.</b> Rebote '+c+'% frente a '+l+'% de tendencia a largo plazo.'+s+' Pensado para entrar y salir en poco tiempo (de horas a pocos días).';
+  if(r==='largo plazo')return '<b>Recomendación de plazo: largo plazo.</b> Tendencia y fundamentales '+l+'% frente a '+c+'% de rebote a corto plazo.'+s+' Pensado para mantener semanas o meses.';
+  if(r==='ambos plazos')return '<b>Válido a corto y a largo plazo</b> (corto '+c+'% · largo '+l+'%).'+s+' Corto = rebote rápido; largo = tendencia sostenida. Elige según cuánto tiempo puedas mantener el dinero.';
+  return '<b>Sin señal clara de plazo</b> (corto '+c+'% · largo '+l+'%). Si compras, mejor una cantidad pequeña y vigilarlo de cerca.';
 }
 
 function abrir(t){
   var x=buscar(t);if(!x)return;actual=t;
   var li=function(a,v){return (a&&a.length?a.map(function(s){return '<li>'+esc(s)+'</li>'}).join(''):'<li>'+v+'</li>')};
   var nt=(x.noticias||[]).length?'<h3>Noticias</h3><ul>'+x.noticias.map(function(n){return '<li>'+esc(n)+'</li>'}).join('')+'</ul>':'';
-  $('#sheet').innerHTML='<div class="row"><div><h2>'+esc(x.nombre)+'</h2><div class="sub">'+esc(x.ticker)+' · '+esc(x.sector)+'</div></div><div class="rt"><div class="pr" style="font-size:20px">'+eur(x.precio)+'</div></div></div>'+
-  '<div class="kpis"><div class="kpi"><small>Confianza de compra</small><b class="up">'+pct(x.compra)+'</b></div><div class="kpi"><small>Confianza de venta</small><b class="dn">'+pct(x.venta)+'</b></div><div class="kpi"><small>RSI</small><b>'+x.rsi+'</b></div></div>'+
-  '<div class="rec" style="margin-top:12px">'+textoPlazo(x)+'</div>'+
+  var rp=recPlazo(x);
+  var avisos='';
+  if(x.liquidez_baja)avisos+='<div class="amb">⚠️ Poca liquidez: se negocia poco volumen y puede costar entrar o salir al precio mostrado.</div>';
+  if(x.completo===false)avisos+='<div class="amb">Este activo solo tiene análisis técnico (sin fundamentales ni noticias): el índice es menos fiable.</div>';
+  $('#sheet').innerHTML='<div class="row"><div><h2>'+esc(x.nombre)+'</h2><div class="sub">'+esc(x.ticker)+' · '+esc(x.tipo||'acción')+(x.sector&&x.sector!=='otros'?' · '+esc(x.sector):'')+'</div></div><div class="rt"><div class="pr" style="font-size:20px">'+eur(x.precio)+'</div></div></div>'+
+  '<div class="kpis"><div class="kpi"><small>⚡ Corto plazo</small><b class="up">'+pct(pc(x))+'</b></div><div class="kpi"><small>📅 Largo plazo</small><b class="up">'+pct(pl(x))+'</b></div><div class="kpi"><small>Venta</small><b class="dn">'+pct(x.venta)+'</b></div></div>'+
+  '<div class="rec" style="margin-top:12px">'+textoPlazo(x)+'<br>💶 <b>Importe orientativo: '+esc(recImporte(x))+'</b></div>'+avisos+
   '<h3>Señales a favor</h3><ul>'+li(x.señales_compra,'Ninguna destacada')+'</ul><h3>Señales en contra</h3><ul>'+li(x.señales_venta,'Ninguna destacada')+'</ul>'+nt+
-  '<div id="buy" style="display:none"><h3>Comprar</h3><div class="rec">Cantidad orientativa: '+rango(x)+'.</div><div class="seg"><label><input type="radio" name="plazo" value="corto"'+(x.rec_plazo==='corto plazo'?' checked':'')+'>⚡ Corto plazo</label><label><input type="radio" name="plazo" value="largo"'+(x.rec_plazo==='largo plazo'?' checked':'')+'>📅 Largo plazo</label></div><label class="lb">Euros invertidos</label><input id="inEur" type="number" inputmode="decimal" step="0.01" min="0" placeholder="Ej. 150"><label class="lb">o número de acciones</label><input id="inAcc" type="number" inputmode="decimal" step="any" min="0" placeholder="Ej. 2.5"><button class="btn g" data-act="confirmar">Confirmar compra a '+eur(x.precio)+'</button></div>'+
+  '<div id="buy" style="display:none"><h3>Comprar</h3><div class="rec">Cantidad orientativa: '+esc(recImporte(x))+'.</div><div class="seg"><label><input type="radio" name="plazo" value="corto"'+(rp==='corto plazo'?' checked':'')+'>⚡ Corto plazo</label><label><input type="radio" name="plazo" value="largo"'+(rp==='largo plazo'?' checked':'')+'>📅 Largo plazo</label></div><label class="lb">Euros invertidos</label><input id="inEur" type="number" inputmode="decimal" step="0.01" min="0" placeholder="Ej. 150"><label class="lb">o número de acciones</label><input id="inAcc" type="number" inputmode="decimal" step="any" min="0" placeholder="Ej. 2.5"><button class="btn g" data-act="confirmar">Confirmar compra a '+eur(x.precio)+'</button></div>'+
   '<button class="btn g" id="bcomprar" data-act="comprar">Comprar</button><button class="btn s" data-act="cerrar">Cerrar</button>';
   $('#bg').classList.add('show');
 }
@@ -212,11 +261,11 @@ function cerrar(){$('#bg').classList.remove('show');actual=null}
 
 function confirmar(){
   var x=buscar(actual);if(!x)return;
-  var pl=document.querySelector('input[name=plazo]:checked');
-  if(!pl){toast('Elige corto o largo plazo');return}
+  var pl_=document.querySelector('input[name=plazo]:checked');
+  if(!pl_){toast('Elige corto o largo plazo');return}
   var e=parseFloat($('#inEur').value),a=parseFloat($('#inAcc').value),acc;
   if(a>0)acc=a;else if(e>0)acc=e/x.precio;else{toast('Indica euros o acciones');return}
-  ops.push({id:Date.now(),ticker:x.ticker,nombre:x.nombre,plazo:pl.value,acciones:acc,precioCompra:x.precio,fecha:new Date().toLocaleDateString('es-ES'),estado:'activa'});
+  ops.push({id:Date.now(),ticker:x.ticker,nombre:x.nombre,plazo:pl_.value,acciones:acc,precioCompra:x.precio,fecha:new Date().toLocaleDateString('es-ES'),estado:'activa'});
   guardarOps();cerrar();tab='ops';render();toast('Compra registrada a '+eur(x.precio));
 }
 function vender(id){
@@ -239,10 +288,10 @@ document.addEventListener('click',function(e){
   else if(a==='comprar'){$('#buy').style.display='block';el.style.display='none';$('#buy').scrollIntoView({behavior:'smooth'})}
   else if(a==='confirmar')confirmar();
   else if(a==='vender')vender(el.dataset.id);
-  else if(a==='export'){
-    var s=JSON.stringify(ops);
-    if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(s).then(function(){toast('Copia guardada en el portapapeles')},function(){prompt('Copia este texto:',s)})}
-    else prompt('Copia este texto:',s);
+  else if(a==='export')copiar(JSON.stringify(ops),'Copia guardada en el portapapeles');
+  else if(a==='cartera'){
+    var ts=[];ops.forEach(function(o){if(o.estado==='activa'&&ts.indexOf(o.ticker)<0)ts.push(o.ticker)});
+    copiar(JSON.stringify({tickers:ts}),'Cartera copiada: pégala en cartera.json');
   }
   else if(a==='import'){
     var t=prompt('Pega aquí la copia de seguridad:');
