@@ -336,7 +336,8 @@ def puntos(i):
     return {"corto": sc, "largo": sl, "venta": sv, "mc": mc, "ml": ml, "mv": mv}
 
 def clamp(x):
-    return int(max(0, min(100, round(x))))
+    # Nunca se muestra 100%: en bolsa nada es seguro al 100%, ni la mejor señal.
+    return int(max(0, min(95, round(x))))
 
 def rec_plazo(corto, largo):
     if max(corto, largo) < 50: return "sin señal clara"
@@ -416,9 +417,14 @@ def bloque_venta(r):
     if r["noticias"]: t += "\n" + r["noticias"][0]
     return t
 
-def decidir_avisos(resultados, cartera, estado, hoy, lim_run=4, lim_dia=12):
+def decidir_avisos(resultados, cartera, estado):
+    """Sin límite de avisos: toda señal nueva (o que cambie de compra a venta
+    o viceversa) se avisa. La única excepción es la primerísima vez que el
+    robot trabaja con el universo completo: ese arranque se registra en
+    silencio para no mandar de golpe miles de avisos que no son reales
+    cambios, solo el primer cálculo."""
     previos = estado.get("avisados", {})
-    enviados_hoy = estado.get("enviados", 0) if estado.get("fecha") == hoy else 0
+    arrancado = bool(estado.get("universo_completo_inicializado"))
     cand, sec_count = [], {}
     for r in sorted(resultados, key=lambda x: -x["compra"]):
         if r["completo"] and r["compra"] >= 70:
@@ -432,16 +438,14 @@ def decidir_avisos(resultados, cartera, estado, hoy, lim_run=4, lim_dia=12):
     cand = sorted(ventas, key=lambda x: -x[0]["venta"]) + cand
     nuevos, actuales = [], {}
     for r, tipo in cand:
-        if previos.get(r["ticker"]) == tipo:
-            actuales[r["ticker"]] = tipo
-        elif len(nuevos) < lim_run and enviados_hoy + len(nuevos) < lim_dia:
+        actuales[r["ticker"]] = tipo
+        if arrancado and previos.get(r["ticker"]) != tipo:
             nuevos.append((r, tipo))
-            actuales[r["ticker"]] = tipo
     analizados = {r["ticker"] for r in resultados}
     for t, tipo in previos.items():
         if t not in analizados:
             actuales[t] = tipo
-    return nuevos, actuales, enviados_hoy
+    return nuevos, actuales, arrancado
 
 def main():
     t0 = time.time()
@@ -484,12 +488,16 @@ def main():
         "total_analizados": len(resultados), "universo_total": len(tickers),
         "resultados": resultados})
     estado = gh_leer("estado.json") or {}
-    hoy = datetime.now(timezone.utc).strftime("%Y-%m-%d")
-    nuevos, actuales, enviados_hoy = decidir_avisos(resultados, cartera, estado, hoy)
-    if nuevos:
+    nuevos, actuales, ya_arrancado = decidir_avisos(resultados, cartera, estado)
+    if not ya_arrancado:
+        telegram("🚀 Tradia ha arrancado con el universo completo de activos.\n"
+                 f"Se han detectado {len(actuales)} señales activas en este primer análisis "
+                 "(no te las mando una a una para no saturarte).\n"
+                 "A partir de ahora, toda señal nueva o que cambie te llegará sin ningún límite.")
+    elif nuevos:
         bloques = [bloque_compra(r) if tipo == "compra" else bloque_venta(r) for r, tipo in nuevos]
         telegram(f"⚠️ Tradia — {len(nuevos)} señal(es) nueva(s)\n\n" + "\n\n".join(bloques))
-    gh_escribir("estado.json", {"fecha": hoy, "enviados": enviados_hoy + len(nuevos),
+    gh_escribir("estado.json", {"universo_completo_inicializado": True,
                                 "avisados": actuales,
                                 "actualizado": datetime.now(timezone.utc).isoformat()})
     print(f"Listo en {time.time() - t0:.0f}s. Analizados: {len(resultados)}. Avisos nuevos: {len(nuevos)}")
