@@ -494,9 +494,14 @@ def main():
                  f"Se han detectado {len(actuales)} señales activas en este primer análisis "
                  "(no te las mando una a una para no saturarte).\n"
                  "A partir de ahora, toda señal nueva o que cambie te llegará sin ningún límite.")
-    elif nuevos:
-        bloques = [bloque_compra(r) if tipo == "compra" else bloque_venta(r) for r, tipo in nuevos]
-        telegram(f"⚠️ Tradia — {len(nuevos)} señal(es) nueva(s)\n\n" + "\n\n".join(bloques))
+        elif nuevos:
+        # Las compras ya se calculan igual y aparecen en la app (resultados.json);
+        # por Telegram solo avisamos de ventas, que es lo único que pediste recibir aquí.
+        nuevos_venta = [(r, tipo) for r, tipo in nuevos if tipo == "venta"]
+        if nuevos_venta:
+            bloques = [bloque_venta(r) for r, tipo in nuevos_venta]
+            telegram(f"⚠️ Tradia — {len(nuevos_venta)} señal(es) de venta nueva(s)\n\n" + "\n\n".join(bloques))
+
     gh_escribir("estado.json", {"universo_completo_inicializado": True,
                                 "avisados": actuales,
                                 "actualizado": datetime.now(timezone.utc).isoformat()})
