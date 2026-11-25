@@ -93,20 +93,39 @@ def gh_leer(ruta):
     except Exception:
         return None
 
+def _git_api(metodo, ruta, **kw):
+    r = metodo(f"https://api.github.com/repos/{GH_REPO}/{ruta}", headers=gh_headers(), timeout=180, **kw)
+    r.raise_for_status()
+    return r.json()
+
 def gh_escribir(ruta, data):
+    """Escribe un archivo usando la Git Data API (blob + tree + commit), que
+    no tiene el límite de 1 MB de la API de 'contents' usada antes. Con miles
+    de activos, resultados.json y universo.json pesan varios MB, así que la
+    API antigua rechazaba el guardado en silencio."""
     cuerpo = json.dumps(data, ensure_ascii=False, separators=(",", ":"))
-    contenido = base64.b64encode(cuerpo.encode("utf-8")).decode()
-    for _ in range(3):
-        payload = {"message": f"update {ruta}", "content": contenido}
-        sha = gh_sha(ruta)
-        if sha:
-            payload["sha"] = sha
-        r = requests.put(gh_url(ruta), headers=gh_headers(), json=payload, timeout=180)
-        if r.status_code in (200, 201):
-            print("Guardado", ruta, len(cuerpo) // 1024, "KB")
+    for intento in range(4):
+        try:
+            ref = _git_api(requests.get, "git/ref/heads/main")
+            commit_actual = ref["object"]["sha"]
+            commit_info = _git_api(requests.get, f"git/commits/{commit_actual}")
+            base_tree = commit_info["tree"]["sha"]
+            blob = _git_api(requests.post, "git/blobs",
+                            json={"content": cuerpo, "encoding": "utf-8"})
+            tree = _git_api(requests.post, "git/trees", json={
+                "base_tree": base_tree,
+                "tree": [{"path": ruta, "mode": "100644", "type": "blob", "sha": blob["sha"]}],
+            })
+            commit = _git_api(requests.post, "git/commits", json={
+                "message": f"update {ruta}", "tree": tree["sha"], "parents": [commit_actual],
+            })
+            requests.patch(f"https://api.github.com/repos/{GH_REPO}/git/refs/heads/main",
+                           headers=gh_headers(), json={"sha": commit["sha"]}, timeout=60).raise_for_status()
+            print("Guardado", ruta, len(cuerpo) // 1024, "KB (commit", commit["sha"][:7], ")")
             return True
-        print("Error guardando", ruta, r.status_code, r.text[:200])
-        time.sleep(3)
+        except Exception as e:
+            print(f"Error guardando {ruta} (intento {intento + 1}):", str(e)[:200])
+            time.sleep(5)
     return False
 
 def telegram(texto):
@@ -229,9 +248,12 @@ def cargar_universo():
         if edad < timedelta(days=7) and not (n < 300 and edad > timedelta(days=1)):
             return u["activos"]
     activos, diag = construir_universo()
-    gh_escribir("universo.json", {"creado": ahora.isoformat(), "activos": activos})
+    ok = gh_escribir("universo.json", {"creado": ahora.isoformat(), "activos": activos})
     n_etf = sum(1 for d in activos.values() if d["t"] == "ETF")
-    telegram(f"🧭 Universo de Tradia actualizado\nTotal: {len(activos)} activos ({len(activos) - n_etf} acciones, {n_etf} ETFs)\n" + "\n".join(diag))
+    if ok:
+        telegram(f"🧭 Universo de Tradia actualizado\nTotal: {len(activos)} activos ({len(activos) - n_etf} acciones, {n_etf} ETFs)\n" + "\n".join(diag))
+    else:
+        telegram("⚠️ Tradia: no se pudo guardar la lista de activos (universo.json). Revisa el repositorio o el token GH_TOKEN.")
     return activos
 
 # ---------- Datos de mercado ----------
@@ -453,7 +475,7 @@ def main():
     tickers = list(universo.keys())
     cartera = set((gh_leer("cartera.json") or {}).get("tickers", []))
     print(f"Universo: {len(tickers)} activos. Cartera: {len(cartera)}")
-    datos = descargar(tickers, 15 * 60)
+    datos = descargar(tickers, 20 * 60)
     print(f"Con datos: {len(datos)} de {len(tickers)} ({time.time() - t0:.0f}s)")
     ahora_utc = pd.Timestamp.now("UTC").tz_localize(None)
     tmp = []
@@ -483,10 +505,12 @@ def main():
             completo = True
         resultados.append(armar(t, iu, i, p, fp, fm, np_, nt, completo))
     resultados.sort(key=lambda r: -r["compra"])
-    gh_escribir("resultados.json", {
+    ok_resultados = gh_escribir("resultados.json", {
         "actualizado": datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M UTC"),
         "total_analizados": len(resultados), "universo_total": len(tickers),
         "resultados": resultados})
+    if not ok_resultados:
+        telegram("⚠️ Tradia: no se pudo guardar resultados.json en esta ejecución. La app puede estar mostrando datos antiguos.")
     estado = gh_leer("estado.json") or {}
     nuevos, actuales, ya_arrancado = decidir_avisos(resultados, cartera, estado)
     if not ya_arrancado:
@@ -494,14 +518,11 @@ def main():
                  f"Se han detectado {len(actuales)} señales activas en este primer análisis "
                  "(no te las mando una a una para no saturarte).\n"
                  "A partir de ahora, toda señal nueva o que cambie te llegará sin ningún límite.")
-        elif nuevos:
-        # Las compras ya se calculan igual y aparecen en la app (resultados.json);
-        # por Telegram solo avisamos de ventas, que es lo único que pediste recibir aquí.
+    elif nuevos:
         nuevos_venta = [(r, tipo) for r, tipo in nuevos if tipo == "venta"]
         if nuevos_venta:
             bloques = [bloque_venta(r) for r, tipo in nuevos_venta]
             telegram(f"⚠️ Tradia — {len(nuevos_venta)} señal(es) de venta nueva(s)\n\n" + "\n\n".join(bloques))
-
     gh_escribir("estado.json", {"universo_completo_inicializado": True,
                                 "avisados": actuales,
                                 "actualizado": datetime.now(timezone.utc).isoformat()})
