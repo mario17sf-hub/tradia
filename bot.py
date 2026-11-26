@@ -469,9 +469,35 @@ def decidir_avisos(resultados, cartera, estado):
             actuales[t] = tipo
     return nuevos, actuales, arrancado
 
+def avisar_si_retraso(umbral_min=50):
+    """Si resultados.json lleva más de 'umbral_min' minutos sin actualizarse
+    (en horario de mercado, donde el robot debería correr cada 20-30 min),
+    manda un único aviso por Telegram. No repite el aviso en cada ejecución:
+    solo cuando el retraso cruza el umbral por primera vez."""
+    prev = gh_leer("resultados.json")
+    if not prev or "actualizado" not in prev:
+        return
+    try:
+        ultimo = datetime.strptime(prev["actualizado"], "%Y-%m-%d %H:%M UTC").replace(tzinfo=timezone.utc)
+    except Exception:
+        return
+    minutos = (datetime.now(timezone.utc) - ultimo).total_seconds() / 60
+    estado = gh_leer("estado.json") or {}
+    if minutos > umbral_min and not estado.get("aviso_retraso_enviado"):
+        telegram(f"🕐 Tradia lleva {int(minutos)} minutos sin actualizarse. "
+                 "Puede que GitHub haya retrasado o saltado alguna ejecución programada; "
+                 "revisa la pestaña Actions del repositorio si continúa así.")
+        estado["aviso_retraso_enviado"] = True
+        gh_escribir("estado.json", estado)
+    elif minutos <= umbral_min and estado.get("aviso_retraso_enviado"):
+        estado["aviso_retraso_enviado"] = False
+        gh_escribir("estado.json", estado)
+
 def main():
     t0 = time.time()
+    avisar_si_retraso()
     universo = cargar_universo()
+
     tickers = list(universo.keys())
     cartera = set((gh_leer("cartera.json") or {}).get("tickers", []))
     print(f"Universo: {len(tickers)} activos. Cartera: {len(cartera)}")
